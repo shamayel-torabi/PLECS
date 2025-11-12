@@ -95,15 +95,15 @@ Plecs {
   ScriptsDialogSplitterPos "0"
   Schematic {
     Location      [0, 23; 1920, 997]
-    ZoomFactor    1
-    SliderPosition [0, 0]
+    ZoomFactor    1.33333
+    SliderPosition [181, 98]
     ShowBrowser   off
     BrowserWidth  180
     Component {
       Type          Capacitor
       Name          "Co"
       Show          on
-      Position      [865, 100]
+      Position      [895, 190]
       Direction     down
       Flipped       on
       LabelPosition west
@@ -122,7 +122,7 @@ Plecs {
       Type          Resistor
       Name          "Ro"
       Show          on
-      Position      [905, 100]
+      Position      [940, 200]
       Direction     down
       Flipped       on
       LabelPosition west
@@ -136,7 +136,7 @@ Plecs {
       Type          Ammeter
       Name          "Am1"
       Show          off
-      Position      [760, 50]
+      Position      [790, 145]
       Direction     right
       Flipped       on
       LabelPosition north
@@ -178,11 +178,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 27; 1920, 1041]
+      Location      [0, 23; 1920, 1019]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAABg/wCAAAAA/sAAAAMAFQAcgBhA"
 "GMAZQBzAAAAABwAAAGDAAAAaAD////7AAAAEABaAG8AbwBtAEEAcgBlAGEAAAAAAP////8AAABeAP"
 "////sAAAAUAFMAYQB2AGUAZABWAGkAZQB3AHMAAAAAAP////8AAABoAP///wAAAAMAAAeAAAAAv/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABSAP///wAAB4AAAAMYAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABSAP///wAAB4AAAAMGAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -269,7 +269,7 @@ Plecs {
       Type          Diode
       Name          "Q5"
       Show          on
-      Position      [675, 290]
+      Position      [705, 235]
       Direction     right
       Flipped       on
       LabelPosition north
@@ -313,7 +313,7 @@ Plecs {
       Type          Diode
       Name          "Q6"
       Show          on
-      Position      [675, 50]
+      Position      [695, 145]
       Direction     right
       Flipped       on
       LabelPosition north
@@ -729,7 +729,37 @@ Plecs {
       Type          HeatSink
       Name          "Heat Sink3"
       Show          off
-      Position      [675, 50]
+      Position      [705, 140]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Frame         [-22, -22; 22, 22]
+      Parameter {
+        Variable      "Cth"
+        Value         "0.1"
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         "25"
+        Show          off
+      }
+      Parameter {
+        Variable      "Width"
+        Value         "1"
+        Show          off
+      }
+      Terminal {
+        Type          HeatPort
+        Position      [-15, 27]
+        Direction     down
+      }
+    }
+    Component {
+      Type          HeatSink
+      Name          "Heat Sink4"
+      Show          off
+      Position      [705, 230]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -752,36 +782,6 @@ Plecs {
       Terminal {
         Type          HeatPort
         Position      [-10, 27]
-        Direction     down
-      }
-    }
-    Component {
-      Type          HeatSink
-      Name          "Heat Sink4"
-      Show          off
-      Position      [675, 290]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Frame         [-22, -22; 22, 22]
-      Parameter {
-        Variable      "Cth"
-        Value         "0.1"
-        Show          off
-      }
-      Parameter {
-        Variable      "T_init"
-        Value         "25"
-        Show          off
-      }
-      Parameter {
-        Variable      "Width"
-        Value         "1"
-        Show          off
-      }
-      Terminal {
-        Type          HeatPort
-        Position      [10, 27]
         Direction     down
       }
     }
@@ -922,7 +922,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm2"
       Show          off
-      Position      [935, 120]
+      Position      [975, 210]
       Direction     up
       Flipped       off
       LabelPosition west
@@ -2198,11 +2198,11 @@ Plecs {
       Type          Display
       Name          "Voltage"
       Show          on
-      Position      [1020, 120]
+      Position      [1045, 210]
       Direction     up
       Flipped       off
       LabelPosition south
-      Frame         [-31, -11; 31, 11]
+      Frame         [-26, -11; 26, 11]
       Parameter {
         Variable      "Notation"
         Value         "1"
@@ -2210,7 +2210,7 @@ Plecs {
       }
       Parameter {
         Variable      "Precision"
-        Value         "4"
+        Value         "1"
         Show          off
       }
     }
@@ -2218,11 +2218,11 @@ Plecs {
       Type          Display
       Name          "Display1"
       Show          on
-      Position      [810, 120]
+      Position      [855, 210]
       Direction     up
       Flipped       off
       LabelPosition south
-      Frame         [-31, -11; 31, 11]
+      Frame         [-21, -11; 21, 11]
       Parameter {
         Variable      "Notation"
         Value         "1"
@@ -2230,7 +2230,7 @@ Plecs {
       }
       Parameter {
         Variable      "Precision"
-        Value         "4"
+        Value         "2"
         Show          off
       }
     }
@@ -2270,17 +2270,17 @@ Plecs {
       }
       Parameter {
         Variable      "A"
-        Value         "1e-4"
+        Value         "354e-6"
         Show          off
       }
       Parameter {
         Variable      "l"
-        Value         "0.1"
+        Value         "0.124"
         Show          off
       }
       Parameter {
         Variable      "mu_r_unsat"
-        Value         "6000"
+        Value         "1590"
         Show          off
       }
       Parameter {
@@ -2290,7 +2290,7 @@ Plecs {
       }
       Parameter {
         Variable      "B_sat"
-        Value         "0.5"
+        Value         "0.32"
         Show          off
       }
       Parameter {
@@ -2332,7 +2332,7 @@ Plecs {
       Type          MagneticInterface
       Name          "MagInt2"
       Show          on
-      Position      [600, 205]
+      Position      [600, 220]
       Direction     down
       Flipped       on
       LabelPosition west
@@ -2554,29 +2554,6 @@ Plecs {
       DstTerminal   1
     }
     Connection {
-      Type          HeatPipe
-      SrcComponent  "Heat Sink2"
-      SrcTerminal   1
-      Points        [360, 265]
-      Branch {
-        Points        [640, 265]
-        Branch {
-          Points        [640, 300]
-          DstComponent  "Heat Sink4"
-          DstTerminal   1
-        }
-        Branch {
-          Points        [640, 40]
-          DstComponent  "Heat Sink3"
-          DstTerminal   1
-        }
-      }
-      Branch {
-        DstComponent  "Rth\nH-A"
-        DstTerminal   1
-      }
-    }
-    Connection {
       Type          Signal
       SrcComponent  "PWM"
       SrcTerminal   1
@@ -2609,9 +2586,9 @@ Plecs {
       Type          Wire
       SrcComponent  "Ro"
       SrcTerminal   1
-      Points        [905, 50]
+      Points        [940, 145]
       Branch {
-        Points        [865, 50]
+        Points        [895, 145]
         Branch {
           DstComponent  "Am1"
           DstTerminal   2
@@ -2622,7 +2599,7 @@ Plecs {
         }
       }
       Branch {
-        Points        [935, 50]
+        Points        [975, 145]
         DstComponent  "Vm2"
         DstTerminal   1
       }
@@ -2631,28 +2608,29 @@ Plecs {
       Type          Wire
       SrcComponent  "Ro"
       SrcTerminal   2
-      Points        [905, 175]
+      Points        [940, 265]
       Branch {
-        Points        [865, 175]
+        Points        [895, 265]
         Branch {
           DstComponent  "Co"
           DstTerminal   2
         }
         Branch {
-          Points        [620, 175]
+          Points        [760, 265; 760, 190; 620, 190]
           Branch {
+            Points        [620, 175]
             DstComponent  "MagInt1"
             DstTerminal   2
           }
           Branch {
-            Points        [620, 190]
+            Points        [620, 205]
             DstComponent  "MagInt2"
             DstTerminal   1
           }
         }
       }
       Branch {
-        Points        [935, 175]
+        Points        [975, 265]
         DstComponent  "Vm2"
         DstTerminal   2
       }
@@ -2661,7 +2639,7 @@ Plecs {
       Type          Wire
       SrcComponent  "Q5"
       SrcTerminal   2
-      Points        [725, 290; 725, 50]
+      Points        [735, 235; 735, 145]
       Branch {
         DstComponent  "Q6"
         DstTerminal   2
@@ -2682,7 +2660,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Am1"
       SrcTerminal   3
-      Points        [760, 120]
+      Points        [790, 210]
       DstComponent  "Display1"
       DstTerminal   1
     }
@@ -2734,25 +2712,45 @@ Plecs {
       Type          Magnetic
       SrcComponent  "MagInt2"
       SrcTerminal   4
-      Points        [600, 245; 490, 245]
+      Points        [600, 255; 490, 255]
       DstComponent  "MagInt"
       DstTerminal   4
     }
     Connection {
       Type          Wire
-      SrcComponent  "MagInt2"
-      SrcTerminal   2
-      Points        [650, 220; 650, 290]
-      DstComponent  "Q5"
+      SrcComponent  "MagInt1"
+      SrcTerminal   1
+      DstComponent  "Q6"
       DstTerminal   1
     }
     Connection {
       Type          Wire
-      SrcComponent  "MagInt1"
-      SrcTerminal   1
-      Points        [635, 145; 635, 50]
-      DstComponent  "Q6"
+      SrcComponent  "MagInt2"
+      SrcTerminal   2
+      DstComponent  "Q5"
       DstTerminal   1
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "Heat Sink2"
+      SrcTerminal   1
+      Points        [360, 265]
+      Branch {
+        DstComponent  "Rth\nH-A"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [665, 265; 665, 220]
+        Branch {
+          DstComponent  "Heat Sink4"
+          DstTerminal   1
+        }
+        Branch {
+          Points        [665, 125]
+          DstComponent  "Heat Sink3"
+          DstTerminal   1
+        }
+      }
     }
     Annotation {
       Name          "<html><body>\n<p align=\"center\">Phase Shift DC-DC Conve"
@@ -2775,4 +2773,4 @@ Plecs {
     MaxNumberOfThreads "-1"
   }
 }
-DemoSignature "XXnt55ZIR5hJ8VPNkmAMLdG04TsjfduW017uSLmIGgQ="
+DemoSignature "QtO2dhC5WG/Z4JrZqtkM3Yp1GM8JSwVdp1KcN4ZbmUU="
