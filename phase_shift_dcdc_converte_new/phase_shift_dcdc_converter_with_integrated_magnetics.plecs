@@ -17,7 +17,7 @@ Plecs {
   NonIdealSwitchResistance "1"
   SyncFixedStepTasks "2"
   UseSingleCommonBaseRate "2"
-  LossVariableLimitExceededMsg "3"
+  LossVariableLimitExceededMsg "2"
   NegativeSwitchLossMsg "2"
   DivisionByZeroMsg "2"
   DatatypeOverflowMsg "2"
@@ -28,17 +28,17 @@ Plecs {
   AlgebraicLoopWithStateMachineMsg "2"
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
-  InitializationCommands "% Input/Output Voltages\nV_i = 150; \t% input voltag"
-"e (DC)\nV_o = 380; \t% output voltage target (DC)\n\n\n% Transformer\nN_p = 8"
-"; % number of turns on primary side windings\nN_s = 24; % number of turns on "
-"secondary side windings\n\n% Load\nP_n = 2e3;\nR_o = V_o^2/P_n; % half rated "
-"power\n\n% Modulator\nf_sw = 100e3; % switching frequency\n\n% Series inducta"
-"nce of the transformer\nL_r = 10e-9;\n\n% Capacitor\nC_o = 47e-6;\n\nmu0 = 4*"
-"pi*1e-7; \t% magnetic constant/permeability of free space (H/m)\nmurunsat = 1"
-"870; \t% unsaturated relative permeability\nmursat = 6; \t\t% saturated relat"
-"ive permeability\nBsat = 0.32; \t\t% flux density saturation\n\nareaside = 17"
-"5.5e-6; % cross-sectional area of core side legs (m^2)\nareamid = 351e-6; \t%"
-" cross-sectional area of core middle leg (m^2)\n% (2 cores are in parallel)\n"
+  InitializationCommands "% Input/Output Voltages\nV_i = 48; \t% input voltage"
+" (DC)\nV_o = 380; \t% output voltage target (DC)\n\n\n% Transformer\nN_p = 3;"
+" % number of turns on primary side windings\nN_s = 24; % number of turns on s"
+"econdary side windings\n\n% Load\nP_n = 2e3;\nR_o = V_o^2/P_n; % half rated p"
+"ower\n\n% Modulator\nf_sw = 100e3; % switching frequency\n\n% Series inductan"
+"ce of the transformer\nL_r = 10e-9;\n\n% Capacitor\nC_o = 47e-6;\n\nmu0 = 4*p"
+"i*1e-7; \t% magnetic constant/permeability of free space (H/m)\nmurunsat = 18"
+"70; \t% unsaturated relative permeability\nmursat = 6; \t\t% saturated relati"
+"ve permeability\nBsat = 0.32; \t\t% flux density saturation\n\nareaside = 175"
+".5e-6; % cross-sectional area of core side legs (m^2)\nareamid = 351e-6; \t% "
+"cross-sectional area of core middle leg (m^2)\n% (2 cores are in parallel)\n"
 "\nlengthcoreside = 46.275e-3; \t% length of flux path of side core leg (m)\nl"
 "engthcoremid = 23.15e-3; \t\t% length of flux path of middle core leg (m)\nle"
 "ngthgap = 3e-3; % length of flux path of all leg air gaps (m)\n\nRm1 = 1/(mu0"
@@ -93,7 +93,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [535, 201; 1419, 782]
+    Location      [940, 234; 1824, 815]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -177,11 +177,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [345, 274; 1464, 948]
+      Location      [184, 248; 1303, 832]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAABg/wCAAAAA/sAAAAMAFQAcgBhA"
 "GMAZQBzAAAAABwAAAGDAAAAaAD////7AAAAEABaAG8AbwBtAEEAcgBlAGEAAAAAAP////8AAABeAP"
 "////sAAAAUAFMAYQB2AGUAZABWAGkAZQB3AHMAAAAAAP////8AAABoAP///wAAAAMAAARfAAAAv/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABF8AAABSAP///wAABF8AAAHEAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABF8AAABSAP///wAABF8AAAFqAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -193,7 +193,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -284,7 +284,7 @@ Plecs {
       }
       Parameter {
         Variable      "thermal"
-        Value         "file:IDW75E60"
+        Value         ""
         Show          off
       }
       Parameter {
@@ -512,11 +512,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [885, 53; 1504, 720]
+      Location      [885, 53; 1504, 702]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAACRPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAIYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAHAAAAkQAAABoAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAAmsAAAKAAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAAmsAAAJuAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -1895,21 +1895,6 @@ Plecs {
         Path          "Q1"
         Signals       {}
       }
-      Probe {
-        Component     "FETD"
-        Path          "Q2"
-        Signals       {}
-      }
-      Probe {
-        Component     "FETD"
-        Path          "Q3"
-        Signals       {}
-      }
-      Probe {
-        Component     "FETD"
-        Path          "Q4"
-        Signals       {}
-      }
     }
     Component {
       Type          Display
@@ -2907,11 +2892,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [1183, 108; 1802, 567]
+      Location      [1183, 108; 1802, 549]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAAvsAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////AAAAAwAAAksAAABq/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
-"AAksAAAB4AP///wAAAmsAAAGwAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"AAksAAAB4AP///wAAAmsAAAGeAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
@@ -2968,14 +2953,14 @@ Plecs {
       Probe {
         Component     "P_sat1"
         Path          "Tr"
-        Signals       {"Field strength", "Flux density"}
+        Signals       {"Flux density", "Field strength"}
       }
     }
     Component {
       Type          Subsystem
       Name          "Q1"
       Show          on
-      Position      [155, 110]
+      Position      [150, 110]
       Direction     down
       Flipped       on
       LabelPosition west
@@ -3000,27 +2985,6 @@ Plecs {
       MaskIconFrame off
       MaskIconOpaque on
       MaskIconRotates on
-      MaskInit      "if(~isempty(Therm.Von))\n"
-"\tTherm.Von.i = Therm.Von.i*num_par;\n"
-"\tTherm.Von.v = Therm.Von.v*num_ser;\n"
-"end\n"
-"\n"
-"if(~isempty(Therm.Eon))\n"
-"\tTherm.Eon.v = Therm.Eon.v*num_ser;\n"
-"\tTherm.Eon.i = Therm.Eon.i*num_par;\n"
-"\tTherm.Eon.E = Therm.Eon.E*num_par*num_ser;\n"
-"end\n"
-"\n"
-"if(~isempty(Therm.Eoff))\n"
-"\tTherm.Eoff.v = Therm.Eoff.v*num_ser;\n"
-"\tTherm.Eoff.i = Therm.Eoff.i*num_par;\n"
-"\tTherm.Eoff.E = Therm.Eoff.E*num_par*num_ser;\n"
-"end\n"
-"\n"
-"if(~isempty(Therm.CauerChain))\n"
-"\tTherm.CauerChain.R = Therm.CauerChain.R/(num_par*num_ser);\n"
-"\tTherm.CauerChain.C = Therm.CauerChain.C*num_par*num_ser;\n"
-"end"
       Parameter {
         Variable      "R_on"
         Prompt        "On-resistance Ron"
@@ -3044,15 +3008,16 @@ Plecs {
         Prompt        "Thermal description"
         Type          Thermal
         Class         ""
-        Value         "file:IPW60R280P6"
+        Value         "file:IPZA60R099CM8-plecs"
         Show          off
+        CustomVariables "struct('Rg_off', 1.1, 'Rg_on', 1.1)"
         TabName       ""
       }
       Parameter {
         Variable      "T_init"
         Prompt        "Initial temperature"
         Type          FreeText
-        Value         "25"
+        Value         "26"
         Show          off
         Tunable       off
         TabName       ""
@@ -3070,7 +3035,7 @@ Plecs {
         Variable      "num_par"
         Prompt        "Number of parallel connection"
         Type          FreeText
-        Value         "15"
+        Value         "3"
         Show          off
         Tunable       off
         TabName       ""
@@ -3091,7 +3056,7 @@ Plecs {
         Direction     up
       }
       Schematic {
-        Location      [1503, 553; 1785, 794]
+        Location      [1170, 519; 1452, 760]
         ZoomFactor    1
         SliderPosition [-1, 0]
         ShowBrowser   off
@@ -3119,7 +3084,7 @@ Plecs {
           Type          Input
           Name          "G"
           Show          on
-          Position      [60, 120]
+          Position      [50, 120]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -3187,26 +3152,84 @@ Plecs {
             Show          off
           }
         }
-        Connection {
-          Type          Signal
-          SrcComponent  "G"
-          SrcTerminal   1
-          DstComponent  "FETD"
-          DstTerminal   3
-        }
-        Connection {
-          Type          Wire
-          SrcComponent  "-"
-          SrcTerminal   1
-          DstComponent  "FETD"
-          DstTerminal   2
+        Component {
+          Type          MosfetWithDiode
+          Name          "FETD1"
+          Show          off
+          Position      [205, 120]
+          Direction     up
+          Flipped       off
+          LabelPosition east
+          Parameter {
+            Variable      "Ron"
+            Value         "R_on*num_ser/num_par"
+            Show          off
+          }
+          Parameter {
+            Variable      "s_init"
+            Value         "G_init"
+            Show          off
+          }
+          Parameter {
+            Variable      "thermal"
+            Value         "ref:Therm"
+            Show          off
+          }
+          Parameter {
+            Variable      "Rth"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "T_init"
+            Value         "T_init"
+            Show          off
+          }
         }
         Connection {
           Type          Wire
           SrcComponent  "FETD"
           SrcTerminal   1
-          DstComponent  "+"
-          DstTerminal   1
+          Points        [120, 85]
+          Branch {
+            DstComponent  "+"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [205, 85]
+            DstComponent  "FETD1"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "-"
+          SrcTerminal   1
+          Points        [120, 150]
+          Branch {
+            DstComponent  "FETD"
+            DstTerminal   2
+          }
+          Branch {
+            Points        [205, 150]
+            DstComponent  "FETD1"
+            DstTerminal   2
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "G"
+          SrcTerminal   1
+          Points        [85, 120]
+          Branch {
+            DstComponent  "FETD"
+            DstTerminal   3
+          }
+          Branch {
+            Points        [85, 80; 165, 80; 165, 120]
+            DstComponent  "FETD1"
+            DstTerminal   3
+          }
         }
       }
       MaskProbe {
@@ -3270,7 +3293,7 @@ Plecs {
       Type          Subsystem
       Name          "Q2"
       Show          on
-      Position      [155, 230]
+      Position      [150, 230]
       Direction     down
       Flipped       on
       LabelPosition west
@@ -3295,27 +3318,6 @@ Plecs {
       MaskIconFrame off
       MaskIconOpaque on
       MaskIconRotates on
-      MaskInit      "if(~isempty(Therm.Von))\n"
-"\tTherm.Von.i = Therm.Von.i*num_par;\n"
-"\tTherm.Von.v = Therm.Von.v*num_ser;\n"
-"end\n"
-"\n"
-"if(~isempty(Therm.Eon))\n"
-"\tTherm.Eon.v = Therm.Eon.v*num_ser;\n"
-"\tTherm.Eon.i = Therm.Eon.i*num_par;\n"
-"\tTherm.Eon.E = Therm.Eon.E*num_par*num_ser;\n"
-"end\n"
-"\n"
-"if(~isempty(Therm.Eoff))\n"
-"\tTherm.Eoff.v = Therm.Eoff.v*num_ser;\n"
-"\tTherm.Eoff.i = Therm.Eoff.i*num_par;\n"
-"\tTherm.Eoff.E = Therm.Eoff.E*num_par*num_ser;\n"
-"end\n"
-"\n"
-"if(~isempty(Therm.CauerChain))\n"
-"\tTherm.CauerChain.R = Therm.CauerChain.R/(num_par*num_ser);\n"
-"\tTherm.CauerChain.C = Therm.CauerChain.C*num_par*num_ser;\n"
-"end"
       Parameter {
         Variable      "R_on"
         Prompt        "On-resistance Ron"
@@ -3339,15 +3341,16 @@ Plecs {
         Prompt        "Thermal description"
         Type          Thermal
         Class         ""
-        Value         "file:IPW60R280P6"
+        Value         "file:IPZA60R099CM8-plecs"
         Show          off
+        CustomVariables "struct('Rg_off', 1.1, 'Rg_on', 1.1)"
         TabName       ""
       }
       Parameter {
         Variable      "T_init"
         Prompt        "Initial temperature"
         Type          FreeText
-        Value         "25"
+        Value         "26"
         Show          off
         Tunable       off
         TabName       ""
@@ -3365,7 +3368,7 @@ Plecs {
         Variable      "num_par"
         Prompt        "Number of parallel connection"
         Type          FreeText
-        Value         "15"
+        Value         "3"
         Show          off
         Tunable       off
         TabName       ""
@@ -3386,7 +3389,7 @@ Plecs {
         Direction     up
       }
       Schematic {
-        Location      [1799, 917; 2000, 1158]
+        Location      [1170, 519; 1452, 760]
         ZoomFactor    1
         SliderPosition [-1, 0]
         ShowBrowser   off
@@ -3414,7 +3417,7 @@ Plecs {
           Type          Input
           Name          "G"
           Show          on
-          Position      [60, 120]
+          Position      [50, 120]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -3482,26 +3485,84 @@ Plecs {
             Show          off
           }
         }
-        Connection {
-          Type          Signal
-          SrcComponent  "G"
-          SrcTerminal   1
-          DstComponent  "FETD"
-          DstTerminal   3
-        }
-        Connection {
-          Type          Wire
-          SrcComponent  "-"
-          SrcTerminal   1
-          DstComponent  "FETD"
-          DstTerminal   2
+        Component {
+          Type          MosfetWithDiode
+          Name          "FETD1"
+          Show          off
+          Position      [205, 120]
+          Direction     up
+          Flipped       off
+          LabelPosition east
+          Parameter {
+            Variable      "Ron"
+            Value         "R_on*num_ser/num_par"
+            Show          off
+          }
+          Parameter {
+            Variable      "s_init"
+            Value         "G_init"
+            Show          off
+          }
+          Parameter {
+            Variable      "thermal"
+            Value         "ref:Therm"
+            Show          off
+          }
+          Parameter {
+            Variable      "Rth"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "T_init"
+            Value         "T_init"
+            Show          off
+          }
         }
         Connection {
           Type          Wire
           SrcComponent  "FETD"
           SrcTerminal   1
-          DstComponent  "+"
-          DstTerminal   1
+          Points        [120, 85]
+          Branch {
+            DstComponent  "+"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [205, 85]
+            DstComponent  "FETD1"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "-"
+          SrcTerminal   1
+          Points        [120, 150]
+          Branch {
+            DstComponent  "FETD"
+            DstTerminal   2
+          }
+          Branch {
+            Points        [205, 150]
+            DstComponent  "FETD1"
+            DstTerminal   2
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "G"
+          SrcTerminal   1
+          Points        [85, 120]
+          Branch {
+            DstComponent  "FETD"
+            DstTerminal   3
+          }
+          Branch {
+            Points        [85, 80; 165, 80; 165, 120]
+            DstComponent  "FETD1"
+            DstTerminal   3
+          }
         }
       }
       MaskProbe {
@@ -3568,7 +3629,7 @@ Plecs {
       Position      [265, 110]
       Direction     up
       Flipped       off
-      LabelPosition westNorthwest
+      LabelPosition east
       Frame         [-20, -20; 20, 20]
       SampleTime    "-1"
       CodeGenDiscretizationMethod "2"
@@ -3590,27 +3651,6 @@ Plecs {
       MaskIconFrame off
       MaskIconOpaque on
       MaskIconRotates on
-      MaskInit      "if(~isempty(Therm.Von))\n"
-"\tTherm.Von.i = Therm.Von.i*num_par;\n"
-"\tTherm.Von.v = Therm.Von.v*num_ser;\n"
-"end\n"
-"\n"
-"if(~isempty(Therm.Eon))\n"
-"\tTherm.Eon.v = Therm.Eon.v*num_ser;\n"
-"\tTherm.Eon.i = Therm.Eon.i*num_par;\n"
-"\tTherm.Eon.E = Therm.Eon.E*num_par*num_ser;\n"
-"end\n"
-"\n"
-"if(~isempty(Therm.Eoff))\n"
-"\tTherm.Eoff.v = Therm.Eoff.v*num_ser;\n"
-"\tTherm.Eoff.i = Therm.Eoff.i*num_par;\n"
-"\tTherm.Eoff.E = Therm.Eoff.E*num_par*num_ser;\n"
-"end\n"
-"\n"
-"if(~isempty(Therm.CauerChain))\n"
-"\tTherm.CauerChain.R = Therm.CauerChain.R/(num_par*num_ser);\n"
-"\tTherm.CauerChain.C = Therm.CauerChain.C*num_par*num_ser;\n"
-"end"
       Parameter {
         Variable      "R_on"
         Prompt        "On-resistance Ron"
@@ -3634,15 +3674,16 @@ Plecs {
         Prompt        "Thermal description"
         Type          Thermal
         Class         ""
-        Value         "file:IPW60R280P6"
+        Value         "file:IPZA60R099CM8-plecs"
         Show          off
+        CustomVariables "struct('Rg_off', 1.1, 'Rg_on', 1.1)"
         TabName       ""
       }
       Parameter {
         Variable      "T_init"
         Prompt        "Initial temperature"
         Type          FreeText
-        Value         "25"
+        Value         "26"
         Show          off
         Tunable       off
         TabName       ""
@@ -3660,7 +3701,7 @@ Plecs {
         Variable      "num_par"
         Prompt        "Number of parallel connection"
         Type          FreeText
-        Value         "15"
+        Value         "3"
         Show          off
         Tunable       off
         TabName       ""
@@ -3681,7 +3722,7 @@ Plecs {
         Direction     up
       }
       Schematic {
-        Location      [1799, 917; 2000, 1158]
+        Location      [1170, 519; 1452, 760]
         ZoomFactor    1
         SliderPosition [-1, 0]
         ShowBrowser   off
@@ -3709,7 +3750,7 @@ Plecs {
           Type          Input
           Name          "G"
           Show          on
-          Position      [60, 120]
+          Position      [50, 120]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -3777,26 +3818,84 @@ Plecs {
             Show          off
           }
         }
-        Connection {
-          Type          Signal
-          SrcComponent  "G"
-          SrcTerminal   1
-          DstComponent  "FETD"
-          DstTerminal   3
-        }
-        Connection {
-          Type          Wire
-          SrcComponent  "-"
-          SrcTerminal   1
-          DstComponent  "FETD"
-          DstTerminal   2
+        Component {
+          Type          MosfetWithDiode
+          Name          "FETD1"
+          Show          off
+          Position      [205, 120]
+          Direction     up
+          Flipped       off
+          LabelPosition east
+          Parameter {
+            Variable      "Ron"
+            Value         "R_on*num_ser/num_par"
+            Show          off
+          }
+          Parameter {
+            Variable      "s_init"
+            Value         "G_init"
+            Show          off
+          }
+          Parameter {
+            Variable      "thermal"
+            Value         "ref:Therm"
+            Show          off
+          }
+          Parameter {
+            Variable      "Rth"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "T_init"
+            Value         "T_init"
+            Show          off
+          }
         }
         Connection {
           Type          Wire
           SrcComponent  "FETD"
           SrcTerminal   1
-          DstComponent  "+"
-          DstTerminal   1
+          Points        [120, 85]
+          Branch {
+            DstComponent  "+"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [205, 85]
+            DstComponent  "FETD1"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "-"
+          SrcTerminal   1
+          Points        [120, 150]
+          Branch {
+            DstComponent  "FETD"
+            DstTerminal   2
+          }
+          Branch {
+            Points        [205, 150]
+            DstComponent  "FETD1"
+            DstTerminal   2
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "G"
+          SrcTerminal   1
+          Points        [85, 120]
+          Branch {
+            DstComponent  "FETD"
+            DstTerminal   3
+          }
+          Branch {
+            Points        [85, 80; 165, 80; 165, 120]
+            DstComponent  "FETD1"
+            DstTerminal   3
+          }
         }
       }
       MaskProbe {
@@ -3863,7 +3962,7 @@ Plecs {
       Position      [265, 230]
       Direction     up
       Flipped       off
-      LabelPosition westNorthwest
+      LabelPosition east
       Frame         [-20, -20; 20, 20]
       SampleTime    "-1"
       CodeGenDiscretizationMethod "2"
@@ -3885,27 +3984,6 @@ Plecs {
       MaskIconFrame off
       MaskIconOpaque on
       MaskIconRotates on
-      MaskInit      "if(~isempty(Therm.Von))\n"
-"\tTherm.Von.i = Therm.Von.i*num_par;\n"
-"\tTherm.Von.v = Therm.Von.v*num_ser;\n"
-"end\n"
-"\n"
-"if(~isempty(Therm.Eon))\n"
-"\tTherm.Eon.v = Therm.Eon.v*num_ser;\n"
-"\tTherm.Eon.i = Therm.Eon.i*num_par;\n"
-"\tTherm.Eon.E = Therm.Eon.E*num_par*num_ser;\n"
-"end\n"
-"\n"
-"if(~isempty(Therm.Eoff))\n"
-"\tTherm.Eoff.v = Therm.Eoff.v*num_ser;\n"
-"\tTherm.Eoff.i = Therm.Eoff.i*num_par;\n"
-"\tTherm.Eoff.E = Therm.Eoff.E*num_par*num_ser;\n"
-"end\n"
-"\n"
-"if(~isempty(Therm.CauerChain))\n"
-"\tTherm.CauerChain.R = Therm.CauerChain.R/(num_par*num_ser);\n"
-"\tTherm.CauerChain.C = Therm.CauerChain.C*num_par*num_ser;\n"
-"end"
       Parameter {
         Variable      "R_on"
         Prompt        "On-resistance Ron"
@@ -3929,15 +4007,16 @@ Plecs {
         Prompt        "Thermal description"
         Type          Thermal
         Class         ""
-        Value         "file:IPW60R280P6"
+        Value         "file:IPZA60R099CM8-plecs"
         Show          off
+        CustomVariables "struct('Rg_off', 1.1, 'Rg_on', 1.1)"
         TabName       ""
       }
       Parameter {
         Variable      "T_init"
         Prompt        "Initial temperature"
         Type          FreeText
-        Value         "25"
+        Value         "26"
         Show          off
         Tunable       off
         TabName       ""
@@ -3955,7 +4034,7 @@ Plecs {
         Variable      "num_par"
         Prompt        "Number of parallel connection"
         Type          FreeText
-        Value         "15"
+        Value         "3"
         Show          off
         Tunable       off
         TabName       ""
@@ -3976,7 +4055,7 @@ Plecs {
         Direction     up
       }
       Schematic {
-        Location      [1799, 917; 2000, 1158]
+        Location      [1170, 519; 1452, 760]
         ZoomFactor    1
         SliderPosition [-1, 0]
         ShowBrowser   off
@@ -4004,7 +4083,7 @@ Plecs {
           Type          Input
           Name          "G"
           Show          on
-          Position      [60, 120]
+          Position      [50, 120]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -4072,26 +4151,84 @@ Plecs {
             Show          off
           }
         }
-        Connection {
-          Type          Signal
-          SrcComponent  "G"
-          SrcTerminal   1
-          DstComponent  "FETD"
-          DstTerminal   3
-        }
-        Connection {
-          Type          Wire
-          SrcComponent  "-"
-          SrcTerminal   1
-          DstComponent  "FETD"
-          DstTerminal   2
+        Component {
+          Type          MosfetWithDiode
+          Name          "FETD1"
+          Show          off
+          Position      [205, 120]
+          Direction     up
+          Flipped       off
+          LabelPosition east
+          Parameter {
+            Variable      "Ron"
+            Value         "R_on*num_ser/num_par"
+            Show          off
+          }
+          Parameter {
+            Variable      "s_init"
+            Value         "G_init"
+            Show          off
+          }
+          Parameter {
+            Variable      "thermal"
+            Value         "ref:Therm"
+            Show          off
+          }
+          Parameter {
+            Variable      "Rth"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "T_init"
+            Value         "T_init"
+            Show          off
+          }
         }
         Connection {
           Type          Wire
           SrcComponent  "FETD"
           SrcTerminal   1
-          DstComponent  "+"
-          DstTerminal   1
+          Points        [120, 85]
+          Branch {
+            DstComponent  "+"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [205, 85]
+            DstComponent  "FETD1"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "-"
+          SrcTerminal   1
+          Points        [120, 150]
+          Branch {
+            DstComponent  "FETD"
+            DstTerminal   2
+          }
+          Branch {
+            Points        [205, 150]
+            DstComponent  "FETD1"
+            DstTerminal   2
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "G"
+          SrcTerminal   1
+          Points        [85, 120]
+          Branch {
+            DstComponent  "FETD"
+            DstTerminal   3
+          }
+          Branch {
+            Points        [85, 80; 165, 80; 165, 120]
+            DstComponent  "FETD1"
+            DstTerminal   3
+          }
         }
       }
       MaskProbe {
@@ -4229,14 +4366,6 @@ Plecs {
     Connection {
       Type          Signal
       SrcComponent  "Demux4"
-      SrcTerminal   2
-      Points        [195, 110]
-      DstComponent  "Q1"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Demux4"
       SrcTerminal   5
       Points        [225, 230]
       DstComponent  "Q4"
@@ -4248,14 +4377,6 @@ Plecs {
       SrcTerminal   4
       Points        [215, 110]
       DstComponent  "Q3"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Demux4"
-      SrcTerminal   3
-      Points        [205, 230]
-      DstComponent  "Q2"
       DstTerminal   2
     }
     Connection {
@@ -4309,7 +4430,7 @@ Plecs {
       SrcTerminal   1
       Points        [40, 70; 70, 70]
       Branch {
-        Points        [155, 70]
+        Points        [150, 70]
         Branch {
           Points        [265, 70]
           DstComponent  "Q3"
@@ -4331,14 +4452,14 @@ Plecs {
       SrcTerminal   2
       Points        [40, 270; 70, 270]
       Branch {
-        Points        [155, 270]
-        Branch {
-          DstComponent  "Q2"
-          DstTerminal   1
-        }
+        Points        [150, 270]
         Branch {
           Points        [265, 270]
           DstComponent  "Q4"
+          DstTerminal   1
+        }
+        Branch {
+          DstComponent  "Q2"
           DstTerminal   1
         }
       }
@@ -4529,16 +4650,32 @@ Plecs {
       DstTerminal   1
     }
     Connection {
+      Type          Signal
+      SrcComponent  "Demux4"
+      SrcTerminal   2
+      Points        [195, 110]
+      DstComponent  "Q1"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux4"
+      SrcTerminal   3
+      Points        [205, 230]
+      DstComponent  "Q2"
+      DstTerminal   2
+    }
+    Connection {
       Type          Wire
-      SrcComponent  "Lr"
+      SrcComponent  "Q1"
       SrcTerminal   1
-      Points        [155, 145]
+      Points        [150, 145]
       Branch {
         DstComponent  "Q2"
         DstTerminal   3
       }
       Branch {
-        DstComponent  "Q1"
+        DstComponent  "Lr"
         DstTerminal   1
       }
     }
@@ -4563,4 +4700,4 @@ Plecs {
     MaxNumberOfThreads "-1"
   }
 }
-DemoSignature "TC8eGFEZHnUhk7XKwObNYpNv8Bqdw3F8z677c1YtpaY="
+DemoSignature "9jJhr/9pEum1QnMFdjxbZWMls/te0rWUjZQu3XNsttQ="
