@@ -1611,11 +1611,11 @@ Plecs {
           Direction     up
           Flipped       off
           LabelPosition south
-          Location      [401, 452; 1506, 1066]
+          Location      [401, 452; 1506, 1075]
           State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
 "wBvAG0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
 "AA/////wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAA"
-"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAABFEAAAJL"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAABFEAAAJU"
 "AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
@@ -2526,7 +2526,7 @@ Plecs {
           }
           Parameter {
             Variable      "Inputs"
-            Value         "|+-"
+            Value         "|++"
             Show          off
           }
           Parameter {
@@ -2886,7 +2886,7 @@ Plecs {
           }
           Parameter {
             Variable      "Inputs"
-            Value         "|++"
+            Value         "|+-"
             Show          off
           }
           Parameter {
@@ -3618,4 +3618,4 @@ Plecs {
     }
   }
 }
-DemoSignature "+qabRs+CQf33cv9giK/AB4tDvCCqHEyp0h54OgbHn/g="
+DemoSignature "qyxlheZmF02DDwB1RSb/lrZNues/8nySIjo3cXSjlaw="

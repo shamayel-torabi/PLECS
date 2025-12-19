@@ -57,7 +57,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [515, 303; 949, 526]
+    Location      [318, 232; 752, 455]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -1606,11 +1606,11 @@ Plecs {
           Direction     up
           Flipped       off
           LabelPosition south
-          Location      [475, 121; 1720, 825]
+          Location      [370, 303; 1615, 1016]
           State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
 "wBvAG0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
 "AA/////wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAA"
-"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAABN0AAAKl"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAABN0AAAKu"
 "AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
@@ -2467,7 +2467,7 @@ Plecs {
           }
           Parameter {
             Variable      "Inputs"
-            Value         "|+-"
+            Value         "|++"
             Show          off
           }
           Parameter {
@@ -2827,7 +2827,7 @@ Plecs {
           }
           Parameter {
             Variable      "Inputs"
-            Value         "|++"
+            Value         "|+-"
             Show          off
           }
           Parameter {
@@ -3660,4 +3660,4 @@ Plecs {
     }
   }
 }
-DemoSignature "JhiEJWCPdKSQ+imsebpu754qC5DGTxPqIj6+fVSSn1o="
+DemoSignature "I6lQKsasgXYw1nmqFR9O37ARPu47q8K+W4bHKvBIIRU="
