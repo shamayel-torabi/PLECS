@@ -1,5 +1,5 @@
 Plecs {
-  Name          "3-phase-invertor-svm"
+  Name          "3-phase-invertor-dpid"
   Version       "4.9"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
@@ -28,7 +28,7 @@ Plecs {
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
-  InitializationCommands "L1=9.0e-3\nL2=2.7e-3\nL=L1+L2\nC=5.986\nVdc=800"
+  InitializationCommands "L1=9.0e-3\nL2=2.7e-3\nL=L1+L2\nC=5.986"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -57,7 +57,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [458, 144; 953, 367]
+    Location      [579, 146; 1013, 369]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -66,7 +66,7 @@ Plecs {
       Type          Subsystem
       Name          "Plant"
       Show          on
-      Position      [295, 80]
+      Position      [300, 80]
       Direction     up
       Flipped       off
       LabelPosition none
@@ -85,26 +85,21 @@ Plecs {
       }
       Terminal {
         Type          Output
-        Position      [64, -25]
-        Direction     right
+        Position      [-20, 44]
+        Direction     down
       }
       Terminal {
         Type          Output
-        Position      [64, 20]
-        Direction     right
+        Position      [20, 44]
+        Direction     down
       }
       Terminal {
         Type          Output
-        Position      [64, 10]
-        Direction     right
-      }
-      Terminal {
-        Type          Output
-        Position      [64, -10]
+        Position      [64, 0]
         Direction     right
       }
       Schematic {
-        Location      [1021, 159; 1771, 582]
+        Location      [1020, 146; 1663, 372]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -113,7 +108,7 @@ Plecs {
           Type          Input
           Name          "pwm"
           Show          on
-          Position      [260, 85]
+          Position      [140, 80]
           Direction     right
           Flipped       off
           LabelPosition west
@@ -132,391 +127,24 @@ Plecs {
           Type          DCVoltageSource
           Name          "V_dc"
           Show          on
-          Position      [130, 150]
+          Position      [70, 145]
           Direction     down
           Flipped       on
           LabelPosition west
           Parameter {
             Variable      "V"
-            Value         "Vdc"
-            Show          off
+            Value         "800"
+            Show          on
           }
-        }
-        Component {
-          Type          Subsystem
-          Name          "VSI"
-          Show          on
-          Position      [290, 150]
-          Direction     up
-          Flipped       off
-          LabelPosition none
-          Frame         [-40, -35; 40, 35]
-          SampleTime    "-1"
-          CodeGenDiscretizationMethod "2"
-          CodeGenTarget "Generic"
-          MaskDisplayLang "2"
-          MaskIconFrame on
-          MaskIconOpaque off
-          MaskIconRotates on
-          Terminal {
-            Type          Port
-            Position      [45, -20]
-            Direction     right
-          }
-          Terminal {
-            Type          Port
-            Position      [45, 0]
-            Direction     right
-          }
-          Terminal {
-            Type          Port
-            Position      [45, 20]
-            Direction     right
-          }
-          Terminal {
-            Type          Port
-            Position      [-45, 25]
-            Direction     left
-          }
-          Terminal {
-            Type          Port
-            Position      [-45, -25]
-            Direction     left
-          }
-          Terminal {
-            Type          Input
-            Position      [0, -35]
-            Direction     up
-          }
-          Schematic {
-            Location      [0, 27; 1920, 993]
-            ZoomFactor    1.77778
-            SliderPosition [0, 0]
-            ShowBrowser   off
-            BrowserWidth  100
-            Component {
-              Type          Reference
-              SrcComponent  "Components/Electrical/Power Modules/VSI1"
-              Name          "VSI1"
-              Show          on
-              Position      [305, 225]
-              Direction     up
-              Flipped       off
-              LabelPosition south
-              Frame         [-100, -70; 100, 70]
-              Parameter {
-                Variable      "semiSymbol"
-                Value         "1"
-                Show          off
-              }
-              Parameter {
-                Variable      "assert"
-                Value         "2"
-                Show          off
-              }
-              Parameter {
-                Variable      "switchModel"
-                Value         "1"
-                Show          off
-              }
-              Parameter {
-                Variable      "Configuration"
-                Value         "2"
-                Show          off
-              }
-              Terminal {
-                Type          Input
-                Position      [-100, -40]
-                Direction     left
-              }
-              Terminal {
-                Type          Port
-                Position      [105, -10]
-                Direction     right
-              }
-              Terminal {
-                Type          Port
-                Position      [105, 0]
-                Direction     right
-              }
-              Terminal {
-                Type          Port
-                Position      [-105, -65]
-                Direction     left
-              }
-              Terminal {
-                Type          Input
-                Position      [-100, 40]
-                Direction     left
-              }
-              Terminal {
-                Type          Port
-                Position      [-105, 65]
-                Direction     left
-              }
-              Terminal {
-                Type          Input
-                Position      [-20, -40]
-                Direction     left
-              }
-              Terminal {
-                Type          Input
-                Position      [-20, 40]
-                Direction     left
-              }
-              Terminal {
-                Type          Port
-                Position      [105, 10]
-                Direction     right
-              }
-              Terminal {
-                Type          Input
-                Position      [60, -40]
-                Direction     left
-              }
-              Terminal {
-                Type          Input
-                Position      [60, 40]
-                Direction     left
-              }
-            }
-            Component {
-              Type          SignalDemux
-              Name          "Demux"
-              Show          off
-              Position      [265, 80]
-              Direction     up
-              Flipped       off
-              LabelPosition east
-              Parameter {
-                Variable      "Width"
-                Value         "6"
-                Show          off
-              }
-            }
-            Component {
-              Type          Port
-              Name          "Va"
-              Show          on
-              Position      [430, 195]
-              Direction     right
-              Flipped       on
-              LabelPosition south
-              Parameter {
-                Variable      "Index"
-                Value         "1"
-                Show          on
-              }
-              Parameter {
-                Variable      "Width"
-                Value         "-1"
-                Show          off
-              }
-            }
-            Component {
-              Type          Port
-              Name          "Vb"
-              Show          on
-              Position      [430, 225]
-              Direction     right
-              Flipped       on
-              LabelPosition south
-              Parameter {
-                Variable      "Index"
-                Value         "2"
-                Show          on
-              }
-              Parameter {
-                Variable      "Width"
-                Value         "-1"
-                Show          off
-              }
-            }
-            Component {
-              Type          Port
-              Name          "Vc"
-              Show          on
-              Position      [430, 255]
-              Direction     right
-              Flipped       on
-              LabelPosition south
-              Parameter {
-                Variable      "Index"
-                Value         "3"
-                Show          on
-              }
-              Parameter {
-                Variable      "Width"
-                Value         "-1"
-                Show          off
-              }
-            }
-            Component {
-              Type          Port
-              Name          "Vdcm"
-              Show          on
-              Position      [125, 290]
-              Direction     right
-              Flipped       off
-              LabelPosition south
-              Parameter {
-                Variable      "Index"
-                Value         "4"
-                Show          on
-              }
-              Parameter {
-                Variable      "Width"
-                Value         "-1"
-                Show          off
-              }
-            }
-            Component {
-              Type          Port
-              Name          "Vdcp"
-              Show          on
-              Position      [125, 160]
-              Direction     right
-              Flipped       off
-              LabelPosition south
-              Parameter {
-                Variable      "Index"
-                Value         "5"
-                Show          on
-              }
-              Parameter {
-                Variable      "Width"
-                Value         "-1"
-                Show          off
-              }
-            }
-            Component {
-              Type          Input
-              Name          "pwm"
-              Show          on
-              Position      [205, 40]
-              Direction     left
-              Flipped       on
-              LabelPosition north
-              Parameter {
-                Variable      "Index"
-                Value         "6"
-                Show          on
-              }
-              Parameter {
-                Variable      "Width"
-                Value         "-1"
-                Show          off
-              }
-            }
-            Connection {
-              Type          Signal
-              SrcComponent  "Demux"
-              SrcTerminal   2
-              Points        [240, 100; 175, 100; 175, 185]
-              DstComponent  "VSI1"
-              DstTerminal   1
-            }
-            Connection {
-              Type          Signal
-              SrcComponent  "Demux"
-              SrcTerminal   3
-              Points        [250, 110; 185, 110; 185, 265]
-              DstComponent  "VSI1"
-              DstTerminal   5
-            }
-            Connection {
-              Type          Signal
-              SrcComponent  "Demux"
-              SrcTerminal   4
-              Points        [260, 185]
-              DstComponent  "VSI1"
-              DstTerminal   7
-            }
-            Connection {
-              Type          Signal
-              SrcComponent  "Demux"
-              SrcTerminal   5
-              DstComponent  "VSI1"
-              DstTerminal   8
-            }
-            Connection {
-              Type          Signal
-              SrcComponent  "Demux"
-              SrcTerminal   6
-              Points        [280, 110; 340, 110; 340, 185]
-              DstComponent  "VSI1"
-              DstTerminal   10
-            }
-            Connection {
-              Type          Signal
-              SrcComponent  "Demux"
-              SrcTerminal   7
-              Points        [290, 100; 350, 100]
-              DstComponent  "VSI1"
-              DstTerminal   11
-            }
-            Connection {
-              Type          Wire
-              SrcComponent  "VSI1"
-              SrcTerminal   2
-              DstComponent  "Va"
-              DstTerminal   1
-            }
-            Connection {
-              Type          Wire
-              SrcComponent  "VSI1"
-              SrcTerminal   3
-              DstComponent  "Vb"
-              DstTerminal   1
-            }
-            Connection {
-              Type          Wire
-              SrcComponent  "VSI1"
-              SrcTerminal   9
-              DstComponent  "Vc"
-              DstTerminal   1
-            }
-            Connection {
-              Type          Wire
-              SrcComponent  "Vdcm"
-              SrcTerminal   1
-              DstComponent  "VSI1"
-              DstTerminal   6
-            }
-            Connection {
-              Type          Wire
-              SrcComponent  "Vdcp"
-              SrcTerminal   1
-              DstComponent  "VSI1"
-              DstTerminal   4
-            }
-            Connection {
-              Type          Signal
-              SrcComponent  "pwm"
-              SrcTerminal   1
-              Points        [265, 40]
-              DstComponent  "Demux"
-              DstTerminal   1
-            }
-          }
-        }
-        Component {
-          Type          Voltmeter
-          Name          "Vm1"
-          Show          on
-          Position      [190, 150]
-          Direction     up
-          Flipped       off
-          LabelPosition westNorthwest
         }
         Component {
           Type          Output
-          Name          "Vdc"
+          Name          "Iabc"
           Show          on
-          Position      [130, 85]
-          Direction     left
+          Position      [320, 80]
+          Direction     right
           Flipped       off
-          LabelPosition north
+          LabelPosition south
           Parameter {
             Variable      "Index"
             Value         "2"
@@ -529,35 +157,16 @@ Plecs {
           }
         }
         Component {
-          Type          Output
-          Name          "Iabc"
-          Show          on
-          Position      [440, 85]
-          Direction     right
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "Index"
-            Value         "3"
-            Show          on
-          }
-          Parameter {
-            Variable      "Width"
-            Value         "-1"
-            Show          off
-          }
-        }
-        Component {
           Type          ThreePhaseVoltageSource
           Name          "grid"
           Show          on
-          Position      [640, 150]
+          Position      [520, 145]
           Direction     down
           Flipped       on
           LabelPosition south
           Parameter {
             Variable      "V"
-            Value         "380"
+            Value         "400"
             Show          on
           }
           Parameter {
@@ -580,13 +189,13 @@ Plecs {
           Type          Output
           Name          "Vabc"
           Show          on
-          Position      [610, 85]
+          Position      [490, 80]
           Direction     right
           Flipped       off
           LabelPosition south
           Parameter {
             Variable      "Index"
-            Value         "4"
+            Value         "3"
             Show          on
           }
           Parameter {
@@ -599,7 +208,7 @@ Plecs {
           Type          Subsystem
           Name          "Meter"
           Show          on
-          Position      [400, 150]
+          Position      [280, 145]
           Direction     up
           Flipped       off
           LabelPosition none
@@ -922,7 +531,7 @@ Plecs {
           Type          Subsystem
           Name          "Vg"
           Show          on
-          Position      [570, 150]
+          Position      [450, 145]
           Direction     up
           Flipped       off
           LabelPosition northNorthwest
@@ -1213,7 +822,7 @@ Plecs {
           Type          Subsystem
           Name          "Filter"
           Show          on
-          Position      [480, 150]
+          Position      [360, 145]
           Direction     up
           Flipped       off
           LabelPosition north
@@ -1704,16 +1313,374 @@ Plecs {
           }
         }
         Component {
+          Type          Subsystem
+          Name          "VSI"
+          Show          on
+          Position      [170, 145]
+          Direction     up
+          Flipped       off
+          LabelPosition none
+          Frame         [-40, -35; 40, 35]
+          SampleTime    "-1"
+          CodeGenDiscretizationMethod "2"
+          CodeGenTarget "Generic"
+          MaskDisplayLang "2"
+          MaskIconFrame on
+          MaskIconOpaque off
+          MaskIconRotates on
+          Terminal {
+            Type          Port
+            Position      [45, -20]
+            Direction     right
+          }
+          Terminal {
+            Type          Port
+            Position      [45, 0]
+            Direction     right
+          }
+          Terminal {
+            Type          Port
+            Position      [45, 20]
+            Direction     right
+          }
+          Terminal {
+            Type          Port
+            Position      [-45, 25]
+            Direction     left
+          }
+          Terminal {
+            Type          Port
+            Position      [-45, -25]
+            Direction     left
+          }
+          Terminal {
+            Type          Input
+            Position      [0, -35]
+            Direction     up
+          }
+          Schematic {
+            Location      [0, 27; 1920, 993]
+            ZoomFactor    1.77778
+            SliderPosition [0, 0]
+            ShowBrowser   off
+            BrowserWidth  100
+            Component {
+              Type          Reference
+              SrcComponent  "Components/Electrical/Power Modules/VSI1"
+              Name          "VSI1"
+              Show          on
+              Position      [305, 225]
+              Direction     up
+              Flipped       off
+              LabelPosition south
+              Frame         [-100, -70; 100, 70]
+              Parameter {
+                Variable      "semiSymbol"
+                Value         "1"
+                Show          off
+              }
+              Parameter {
+                Variable      "assert"
+                Value         "2"
+                Show          off
+              }
+              Parameter {
+                Variable      "switchModel"
+                Value         "1"
+                Show          off
+              }
+              Parameter {
+                Variable      "Configuration"
+                Value         "1"
+                Show          off
+              }
+              Terminal {
+                Type          Input
+                Position      [-100, -40]
+                Direction     left
+              }
+              Terminal {
+                Type          Port
+                Position      [105, -10]
+                Direction     right
+              }
+              Terminal {
+                Type          Port
+                Position      [105, 0]
+                Direction     right
+              }
+              Terminal {
+                Type          Port
+                Position      [-105, -65]
+                Direction     left
+              }
+              Terminal {
+                Type          Input
+                Position      [-100, 40]
+                Direction     left
+              }
+              Terminal {
+                Type          Port
+                Position      [-105, 65]
+                Direction     left
+              }
+              Terminal {
+                Type          Input
+                Position      [-20, -40]
+                Direction     left
+              }
+              Terminal {
+                Type          Input
+                Position      [-20, 40]
+                Direction     left
+              }
+              Terminal {
+                Type          Port
+                Position      [105, 10]
+                Direction     right
+              }
+              Terminal {
+                Type          Input
+                Position      [60, -40]
+                Direction     left
+              }
+              Terminal {
+                Type          Input
+                Position      [60, 40]
+                Direction     left
+              }
+            }
+            Component {
+              Type          SignalDemux
+              Name          "Demux"
+              Show          off
+              Position      [265, 80]
+              Direction     up
+              Flipped       off
+              LabelPosition east
+              Parameter {
+                Variable      "Width"
+                Value         "6"
+                Show          off
+              }
+            }
+            Component {
+              Type          Port
+              Name          "Va"
+              Show          on
+              Position      [430, 195]
+              Direction     right
+              Flipped       on
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "1"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Port
+              Name          "Vb"
+              Show          on
+              Position      [430, 225]
+              Direction     right
+              Flipped       on
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "2"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Port
+              Name          "Vc"
+              Show          on
+              Position      [430, 255]
+              Direction     right
+              Flipped       on
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "3"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Port
+              Name          "Vdcm"
+              Show          on
+              Position      [125, 290]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "4"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Port
+              Name          "Vdcp"
+              Show          on
+              Position      [125, 160]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "5"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Input
+              Name          "pwm"
+              Show          on
+              Position      [205, 40]
+              Direction     left
+              Flipped       on
+              LabelPosition north
+              Parameter {
+                Variable      "Index"
+                Value         "6"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Demux"
+              SrcTerminal   2
+              Points        [240, 100; 175, 100; 175, 185]
+              DstComponent  "VSI1"
+              DstTerminal   1
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Demux"
+              SrcTerminal   3
+              Points        [250, 110; 185, 110; 185, 265]
+              DstComponent  "VSI1"
+              DstTerminal   5
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Demux"
+              SrcTerminal   4
+              Points        [260, 185]
+              DstComponent  "VSI1"
+              DstTerminal   7
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Demux"
+              SrcTerminal   5
+              DstComponent  "VSI1"
+              DstTerminal   8
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Demux"
+              SrcTerminal   6
+              Points        [280, 110; 340, 110; 340, 185]
+              DstComponent  "VSI1"
+              DstTerminal   10
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Demux"
+              SrcTerminal   7
+              Points        [290, 100; 350, 100]
+              DstComponent  "VSI1"
+              DstTerminal   11
+            }
+            Connection {
+              Type          Wire
+              SrcComponent  "VSI1"
+              SrcTerminal   2
+              DstComponent  "Va"
+              DstTerminal   1
+            }
+            Connection {
+              Type          Wire
+              SrcComponent  "VSI1"
+              SrcTerminal   3
+              DstComponent  "Vb"
+              DstTerminal   1
+            }
+            Connection {
+              Type          Wire
+              SrcComponent  "VSI1"
+              SrcTerminal   9
+              DstComponent  "Vc"
+              DstTerminal   1
+            }
+            Connection {
+              Type          Wire
+              SrcComponent  "Vdcm"
+              SrcTerminal   1
+              DstComponent  "VSI1"
+              DstTerminal   6
+            }
+            Connection {
+              Type          Wire
+              SrcComponent  "Vdcp"
+              SrcTerminal   1
+              DstComponent  "VSI1"
+              DstTerminal   4
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "pwm"
+              SrcTerminal   1
+              Points        [265, 40]
+              DstComponent  "Demux"
+              DstTerminal   1
+            }
+          }
+        }
+        Component {
           Type          Output
           Name          "Vinv"
           Show          on
-          Position      [360, 85]
+          Position      [240, 80]
           Direction     left
           Flipped       off
           LabelPosition north
           Parameter {
             Variable      "Index"
-            Value         "5"
+            Value         "4"
             Show          on
           }
           Parameter {
@@ -1723,10 +1690,67 @@ Plecs {
           }
         }
         Component {
+          Type          Scope
+          Name          "Scope1"
+          Show          on
+          Position      [340, 30]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Location      [0, 27; 1920, 1060]
+          State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
+"wBvAG0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
+"AA/////wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAA"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAB4AAAAPu"
+"AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
+"AAAAAAAAA=="
+          SavedViews    "AAAAAgAAAAA="
+          HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":222,\"Labels\""
+":[],\"VisualIdxs\":[]}"
+          PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          Axes          "1"
+          TimeRange     "0.0"
+          ScrollingMode "1"
+          SingleTimeAxis "1"
+          Open          "0"
+          Ts            "-1"
+          SampleLimit   "0"
+          XAxisLabel    "Time / s"
+          ShowLegend    "1"
+          Axis {
+            Name          ""
+            AutoScale     1
+            MinValue      0
+            MaxValue      1
+            Signals       {}
+            SignalTypes   [ ]
+            Untangle      0
+            KeepBaseline  off
+            BaselineValue 0
+          }
+          Fourier {
+            SingleXAxis       on
+            AxisLabel         "Frequency / Hz"
+            Scaling           0
+            PhaseDisplay      0
+            ShowFourierLegend off
+            Axis {
+              Name          ""
+              AutoScale     1
+              MinValue      0
+              MaxValue      1
+              Signals       {}
+              Untangle      0
+              KeepBaseline  off
+              BaselineValue 0
+            }
+          }
+        }
+        Component {
           Type          Ground
           Name          "Ground"
           Show          off
-          Position      [680, 170]
+          Position      [560, 165]
           Direction     up
           Flipped       off
           LabelPosition east
@@ -1735,7 +1759,7 @@ Plecs {
           Type          Ground
           Name          "Ground1"
           Show          off
-          Position      [570, 210]
+          Position      [450, 205]
           Direction     up
           Flipped       off
           LabelPosition east
@@ -1744,7 +1768,7 @@ Plecs {
           Type          Ground
           Name          "Ground2"
           Show          off
-          Position      [400, 210]
+          Position      [280, 205]
           Direction     up
           Flipped       off
           LabelPosition east
@@ -1753,54 +1777,10 @@ Plecs {
           Type          Ground
           Name          "Ground3"
           Show          off
-          Position      [480, 210]
+          Position      [360, 205]
           Direction     up
           Flipped       off
           LabelPosition east
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "pwm"
-          SrcTerminal   1
-          Points        [290, 85]
-          DstComponent  "VSI"
-          DstTerminal   6
-        }
-        Connection {
-          Type          Wire
-          SrcComponent  "V_dc"
-          SrcTerminal   1
-          Points        [130, 125; 190, 125]
-          Branch {
-            DstComponent  "Vm1"
-            DstTerminal   1
-          }
-          Branch {
-            DstComponent  "VSI"
-            DstTerminal   5
-          }
-        }
-        Connection {
-          Type          Wire
-          SrcComponent  "V_dc"
-          SrcTerminal   2
-          Points        [130, 175; 190, 175]
-          Branch {
-            DstComponent  "Vm1"
-            DstTerminal   2
-          }
-          Branch {
-            DstComponent  "VSI"
-            DstTerminal   4
-          }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Vm1"
-          SrcTerminal   3
-          Points        [205, 85]
-          DstComponent  "Vdc"
-          DstTerminal   1
         }
         Connection {
           Type          Wire
@@ -1827,9 +1807,33 @@ Plecs {
           Type          Signal
           SrcComponent  "Vg"
           SrcTerminal   1
-          Points        [570, 85]
+          Points        [450, 80]
           DstComponent  "Vabc"
           DstTerminal   1
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "V_dc"
+          SrcTerminal   1
+          Points        [70, 120]
+          DstComponent  "VSI"
+          DstTerminal   5
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "V_dc"
+          SrcTerminal   2
+          Points        [70, 170]
+          DstComponent  "VSI"
+          DstTerminal   4
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "pwm"
+          SrcTerminal   1
+          Points        [170, 80]
+          DstComponent  "VSI"
+          DstTerminal   6
         }
         Connection {
           Type          Wire
@@ -1851,6 +1855,27 @@ Plecs {
           SrcTerminal   3
           DstComponent  "Vg"
           DstTerminal   5
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "Meter"
+          SrcTerminal   7
+          DstComponent  "VSI"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "Meter"
+          SrcTerminal   6
+          DstComponent  "VSI"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "Meter"
+          SrcTerminal   5
+          DstComponent  "VSI"
+          DstTerminal   3
         }
         Connection {
           Type          Wire
@@ -1876,6 +1901,21 @@ Plecs {
         Connection {
           Type          Signal
           SrcComponent  "Meter"
+          SrcTerminal   1
+          Points        [290, 80]
+          Branch {
+            DstComponent  "Iabc"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [290, 30]
+            DstComponent  "Scope1"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Meter"
           SrcTerminal   8
           DstComponent  "Vinv"
           DstTerminal   1
@@ -1884,7 +1924,7 @@ Plecs {
           Type          Wire
           SrcComponent  "Ground"
           SrcTerminal   1
-          Points        [680, 150]
+          Points        [560, 145]
           DstComponent  "grid"
           DstTerminal   4
         }
@@ -1909,54 +1949,25 @@ Plecs {
           DstComponent  "Ground3"
           DstTerminal   1
         }
-        Connection {
-          Type          Signal
-          SrcComponent  "Meter"
-          SrcTerminal   1
-          DstComponent  "Iabc"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Wire
-          SrcComponent  "VSI"
-          SrcTerminal   1
-          DstComponent  "Meter"
-          DstTerminal   7
-        }
-        Connection {
-          Type          Wire
-          SrcComponent  "VSI"
-          SrcTerminal   2
-          DstComponent  "Meter"
-          DstTerminal   6
-        }
-        Connection {
-          Type          Wire
-          SrcComponent  "VSI"
-          SrcTerminal   3
-          DstComponent  "Meter"
-          DstTerminal   5
-        }
       }
     }
     Component {
       Type          Subsystem
       Name          "Controller"
       Show          on
-      Position      [125, 80]
+      Position      [115, 80]
       Direction     up
       Flipped       off
       LabelPosition none
-      Frame         [-60, -40; 60, 40]
+      Frame         [-50, -40; 50, 40]
       TreatAsAtomicUnit on
       SampleTime    "-1"
-      CodeGenSampleTime "1e-4"
       CodeGenDiscretizationMethod "2"
       CodeGenTarget "Generic"
       CodeGenTargetSettings "AAAAfwAAAAAbQ29kZUdlblRhcmdldDo6U2V0dGluZ3NNYXAAA"
 "AAAAQAAAA4ARwBlAG4AZQByAGkAYwAAAAUAAAAaAEUAWABUAEUAUgBOAEEATABfAE0ATwBEAEUAAA"
 "ACADAAAAA8AEcARQBOAEUAUgBBAFQARQBfAE8AVQBUAFAAVQBUAF8AQQBOAEQAXwBVAFAARABBAFQ"
-"ARQBfAEYAQwBOAAAAAgAxAAAASgBVAFMARQBfAEQAQQBUAEEAXwBUAFkAUABFAFMAXwBGAE8AUgBf"
+"ARQBfAEYAQwBOAAAAAgAwAAAASgBVAFMARQBfAEQAQQBUAEEAXwBUAFkAUABFAFMAXwBGAE8AUgBf"
 "AFQAVQBOAEEAQgBMAEUAXwBQAEEAUgBBAE0ARQBUAEUAUgBTAAAAAgAxAAAAOgBVAFMARQBfAEUAW"
 "ABUAEUAUgBOAF8ATQBPAEQARQBMAF8ARABBAFQAQQBfAFMAVABSAFUAQwBUAFMAAAACADEAAAA0AF"
 "UAUwBFAF8AUwBUAEEAUgBUAF8AVABJAE0ARQBfAEkATgBfAEkATgBJAFQAXwBGAEMATgAAAAIAMQ="
@@ -1973,30 +1984,24 @@ Plecs {
       MaskIconRotates on
       Terminal {
         Type          Input
-        Position      [-60, 10]
+        Position      [-50, -20]
         Direction     left
         Index         "1"
       }
       Terminal {
         Type          Input
-        Position      [-60, 20]
+        Position      [-50, 20]
         Direction     left
         Index         "2"
       }
       Terminal {
         Type          Output
-        Position      [64, 0]
+        Position      [54, 0]
         Direction     right
         Index         "1"
       }
-      Terminal {
-        Type          Input
-        Position      [-60, -25]
-        Direction     left
-        Index         "3"
-      }
       Schematic {
-        Location      [989, 134; 1810, 624]
+        Location      [318, 413; 1192, 903]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -2460,7 +2465,7 @@ Plecs {
           Type          Sum
           Name          "Sum1"
           Show          off
-          Position      [250, 240]
+          Position      [275, 240]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -2489,7 +2494,7 @@ Plecs {
           Type          Gain
           Name          "Kd"
           Show          on
-          Position      [250, 285]
+          Position      [275, 285]
           Direction     up
           Flipped       off
           LabelPosition east
@@ -2523,7 +2528,7 @@ Plecs {
           Type          From
           Name          "From3"
           Show          off
-          Position      [250, 320]
+          Position      [275, 320]
           Direction     up
           Flipped       off
           LabelPosition east
@@ -2547,7 +2552,7 @@ Plecs {
           Type          Sum
           Name          "Sum2"
           Show          off
-          Position      [315, 240]
+          Position      [340, 240]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -2576,7 +2581,7 @@ Plecs {
           Type          From
           Name          "From4"
           Show          off
-          Position      [315, 275]
+          Position      [340, 275]
           Direction     up
           Flipped       off
           LabelPosition east
@@ -2673,7 +2678,7 @@ Plecs {
           Type          Sum
           Name          "Sum4"
           Show          off
-          Position      [250, 380]
+          Position      [275, 380]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -2702,7 +2707,7 @@ Plecs {
           Type          Gain
           Name          "Kq"
           Show          on
-          Position      [250, 425]
+          Position      [275, 425]
           Direction     up
           Flipped       off
           LabelPosition east
@@ -2736,7 +2741,7 @@ Plecs {
           Type          From
           Name          "From6"
           Show          off
-          Position      [250, 460]
+          Position      [275, 460]
           Direction     up
           Flipped       off
           LabelPosition east
@@ -2760,7 +2765,7 @@ Plecs {
           Type          Sum
           Name          "Sum5"
           Show          off
-          Position      [315, 380]
+          Position      [340, 380]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -2789,7 +2794,7 @@ Plecs {
           Type          From
           Name          "From7"
           Show          off
-          Position      [315, 415]
+          Position      [340, 415]
           Direction     up
           Flipped       off
           LabelPosition east
@@ -2813,7 +2818,7 @@ Plecs {
           Type          SignalMux
           Name          "Mux"
           Show          off
-          Position      [390, 310]
+          Position      [415, 310]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -2824,35 +2829,11 @@ Plecs {
           }
         }
         Component {
-          Type          From
-          Name          "From8"
-          Show          off
-          Position      [380, 350]
-          Direction     right
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "Tag"
-            Value         "wt"
-            Show          off
-          }
-          Parameter {
-            Variable      "Visibility"
-            Value         "1"
-            Show          off
-          }
-          Parameter {
-            Variable      "NoMatchingCounterpartAction"
-            Value         "1"
-            Show          off
-          }
-        }
-        Component {
           Type          Reference
-          SrcComponent  "Components/Control/Transformations/RRF->SRF"
-          Name          "RRF->SRF"
+          SrcComponent  "Components/Control/Transformations/RRF->3ph"
+          Name          "RRF->3ph"
           Show          on
-          Position      [445, 315]
+          Position      [465, 315]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -2874,23 +2855,141 @@ Plecs {
           }
         }
         Component {
-          Type          Reference
-          SrcComponent  "Components/Control/Modulators/Space Vector PWM"
-          Name          "SVPWM"
+          Type          From
+          Name          "From8"
+          Show          off
+          Position      [405, 350]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Tag"
+            Value         "wt"
+            Show          off
+          }
+          Parameter {
+            Variable      "Visibility"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "NoMatchingCounterpartAction"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Scope
+          Name          "Scope1"
           Show          on
-          Position      [525, 305]
+          Position      [795, 230]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Location      [164, 319; 1774, 1036]
+          State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
+"wBvAG0AQQByAGUAYQAAAAAA/////wAAAF4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
+"AA/////wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAZKAAA"
+"Am/wBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABkoAAABSAP///wAABkoAAAIT"
+"AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
+"AAAAAAAAA=="
+          SavedViews    "AAAAAgAAAAA="
+          HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":155,\"Labels\""
+":[\"Delta\"],\"VisualIdxs\":[3]}"
+          PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+"QAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+          Axes          "2"
+          TimeRange     "0"
+          ScrollingMode "1"
+          SingleTimeAxis "1"
+          Open          "0"
+          Ts            "-1"
+          SampleLimit   "0"
+          XAxisLabel    "Time / s"
+          ShowLegend    "1"
+          Axis {
+            Name          ""
+            AutoScale     1
+            MinValue      0
+            MaxValue      1
+            Signals       {}
+            SignalTypes   [ ]
+            Untangle      0
+            KeepBaseline  off
+            BaselineValue 0
+          }
+          Axis {
+            Name          ""
+            AutoScale     1
+            MinValue      0
+            MaxValue      1
+            Signals       {}
+            SignalTypes   [ ]
+            Untangle      0
+            KeepBaseline  off
+            BaselineValue 0
+          }
+          Fourier {
+            SingleXAxis       on
+            AxisLabel         "Frequency / Hz"
+            Scaling           0
+            PhaseDisplay      0
+            ShowFourierLegend off
+            Axis {
+              Name          ""
+              AutoScale     1
+              MinValue      0
+              MaxValue      1
+              Signals       {}
+              Untangle      0
+              KeepBaseline  off
+              BaselineValue 0
+            }
+            Axis {
+              Name          ""
+              AutoScale     1
+              MinValue      0
+              MaxValue      1
+              Signals       {}
+              Untangle      0
+              KeepBaseline  off
+              BaselineValue 0
+            }
+          }
+        }
+        Component {
+          Type          Reference
+          SrcComponent  "Components/Control/Modulators/Sawtooth PWM"
+          Name          "Sawtooth PWM"
+          Show          on
+          Position      [580, 315]
           Direction     up
           Flipped       off
           LabelPosition south
           Frame         [-20, -20; 20, 20]
           Parameter {
-            Variable      "pattern"
-            Value         "3"
+            Variable      "config"
+            Value         "1"
             Show          off
           }
           Parameter {
-            Variable      "fs"
-            Value         "10e3"
+            Variable      "ramp"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "fc"
+            Value         "10000"
+            Show          off
+          }
+          Parameter {
+            Variable      "carrier_phaseshift"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "carrier_limits"
+            Value         "[-1 1]"
             Show          off
           }
           Parameter {
@@ -2905,20 +3004,49 @@ Plecs {
           }
           Terminal {
             Type          Input
-            Position      [-20, -10]
+            Position      [-20, 0]
             Direction     left
           }
-          Terminal {
-            Type          Input
-            Position      [-20, 10]
-            Direction     left
+        }
+        Component {
+          Type          Gain
+          Name          "Gain2"
+          Show          on
+          Position      [520, 315]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "K"
+            Value         "[1/400 1/400 1/400]"
+            Show          off
+          }
+          Parameter {
+            Variable      "Multiplication"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "OutputDataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "GainDataType"
+            Value         "11"
+            Show          off
           }
         }
         Component {
           Type          SignalDemux
           Name          "Demux2"
           Show          off
-          Position      [585, 305]
+          Position      [625, 315]
           Direction     right
           Flipped       on
           LabelPosition south
@@ -2932,7 +3060,7 @@ Plecs {
           Type          LogicalOperator
           Name          "N1"
           Show          on
-          Position      [630, 270]
+          Position      [670, 280]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -2951,7 +3079,7 @@ Plecs {
           Type          SignalMux
           Name          "Mux1"
           Show          off
-          Position      [745, 310]
+          Position      [785, 320]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -2965,7 +3093,7 @@ Plecs {
           Type          LogicalOperator
           Name          "N2"
           Show          on
-          Position      [630, 335]
+          Position      [670, 345]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -2984,7 +3112,7 @@ Plecs {
           Type          LogicalOperator
           Name          "N3"
           Show          on
-          Position      [630, 400]
+          Position      [670, 410]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -3003,7 +3131,7 @@ Plecs {
           Type          Output
           Name          "pwm"
           Show          on
-          Position      [785, 310]
+          Position      [825, 320]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -3019,40 +3147,11 @@ Plecs {
           }
         }
         Component {
-          Type          Input
-          Name          "Vdc"
-          Show          on
-          Position      [420, 260]
-          Direction     right
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "Index"
-            Value         "4"
-            Show          on
-          }
-          Parameter {
-            Variable      "DataType"
-            Value         "10"
-            Show          off
-          }
-          Parameter {
-            Variable      "DataTypeOverflowMode"
-            Value         "1"
-            Show          off
-          }
-          Parameter {
-            Variable      "Width"
-            Value         "-1"
-            Show          off
-          }
-        }
-        Component {
           Type          Reference
           SrcComponent  "Components/Control/Discrete/Discrete PID\\nController"
           Name          "Discrete PID\nController"
           Show          on
-          Position      [170, 240]
+          Position      [180, 240]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -3208,7 +3307,7 @@ Plecs {
           SrcComponent  "Components/Control/Discrete/Discrete PID\\nController"
           Name          "Discrete PID\nController1"
           Show          on
-          Position      [170, 380]
+          Position      [180, 380]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -3453,20 +3552,6 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "Sum"
-          SrcTerminal   1
-          DstComponent  "Discrete PID\nController"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Discrete PID\nController"
-          SrcTerminal   2
-          DstComponent  "Sum1"
-          DstTerminal   2
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "Kd"
           SrcTerminal   2
           DstComponent  "Sum1"
@@ -3509,20 +3594,6 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "Sum3"
-          SrcTerminal   1
-          DstComponent  "Discrete PID\nController1"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Discrete PID\nController1"
-          SrcTerminal   2
-          DstComponent  "Sum4"
-          DstTerminal   2
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "Kq"
           SrcTerminal   2
           DstComponent  "Sum4"
@@ -3553,7 +3624,7 @@ Plecs {
           Type          Signal
           SrcComponent  "Sum2"
           SrcTerminal   1
-          Points        [350, 240; 350, 305]
+          Points        [375, 240; 375, 305]
           DstComponent  "Mux"
           DstTerminal   2
         }
@@ -3561,9 +3632,138 @@ Plecs {
           Type          Signal
           SrcComponent  "Sum5"
           SrcTerminal   1
-          Points        [350, 380; 350, 315]
+          Points        [375, 380; 375, 315]
           DstComponent  "Mux"
           DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From8"
+          SrcTerminal   1
+          Points        [425, 350; 425, 320]
+          DstComponent  "RRF->3ph"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "RRF->3ph"
+          SrcTerminal   2
+          DstComponent  "Gain2"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Mux"
+          SrcTerminal   1
+          DstComponent  "RRF->3ph"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Sawtooth PWM"
+          SrcTerminal   1
+          DstComponent  "Demux2"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "N1"
+          SrcTerminal   1
+          Points        [730, 280; 730, 305]
+          DstComponent  "Mux1"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux2"
+          SrcTerminal   2
+          Points        [635, 305; 635, 280]
+          Branch {
+            Points        [635, 255; 750, 255]
+            Branch {
+              Points        [750, 295]
+              DstComponent  "Mux1"
+              DstTerminal   2
+            }
+            Branch {
+              Points        [750, 235]
+              DstComponent  "Scope1"
+              DstTerminal   2
+            }
+          }
+          Branch {
+            DstComponent  "N1"
+            DstTerminal   2
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux2"
+          SrcTerminal   3
+          Points        [635, 315]
+          Branch {
+            Points        [635, 345]
+            DstComponent  "N2"
+            DstTerminal   2
+          }
+          Branch {
+            DstComponent  "Mux1"
+            DstTerminal   4
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "N2"
+          SrcTerminal   1
+          Points        [730, 345; 730, 325]
+          DstComponent  "Mux1"
+          DstTerminal   5
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "N3"
+          SrcTerminal   1
+          Points        [755, 410; 755, 345]
+          DstComponent  "Mux1"
+          DstTerminal   7
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux2"
+          SrcTerminal   4
+          Points        [630, 375]
+          Branch {
+            Points        [630, 410]
+            DstComponent  "N3"
+            DstTerminal   2
+          }
+          Branch {
+            Points        [740, 375; 740, 335]
+            DstComponent  "Mux1"
+            DstTerminal   6
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Gain2"
+          SrcTerminal   2
+          Points        [545, 315]
+          Branch {
+            DstComponent  "Sawtooth PWM"
+            DstTerminal   2
+          }
+          Branch {
+            Points        [545, 225]
+            DstComponent  "Scope1"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Mux1"
+          SrcTerminal   1
+          DstComponent  "pwm"
+          DstTerminal   1
         }
         Connection {
           Type          Signal
@@ -3581,290 +3781,49 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "Mux"
-          SrcTerminal   1
-          DstComponent  "RRF->SRF"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "From8"
-          SrcTerminal   1
-          Points        [400, 350; 400, 320]
-          DstComponent  "RRF->SRF"
-          DstTerminal   3
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "N1"
-          SrcTerminal   1
-          Points        [690, 270; 690, 295]
-          DstComponent  "Mux1"
-          DstTerminal   3
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Demux2"
+          SrcComponent  "Discrete PID\nController"
           SrcTerminal   2
-          Points        [595, 295; 595, 270]
-          Branch {
-            Points        [595, 245; 710, 245; 710, 285]
-            DstComponent  "Mux1"
-            DstTerminal   2
-          }
-          Branch {
-            DstComponent  "N1"
-            DstTerminal   2
-          }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Demux2"
-          SrcTerminal   3
-          Points        [595, 305]
-          Branch {
-            Points        [595, 335]
-            DstComponent  "N2"
-            DstTerminal   2
-          }
-          Branch {
-            DstComponent  "Mux1"
-            DstTerminal   4
-          }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "N2"
-          SrcTerminal   1
-          Points        [690, 335; 690, 315]
-          DstComponent  "Mux1"
-          DstTerminal   5
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "N3"
-          SrcTerminal   1
-          Points        [715, 400; 715, 335]
-          DstComponent  "Mux1"
-          DstTerminal   7
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Demux2"
-          SrcTerminal   4
-          Points        [590, 365]
-          Branch {
-            Points        [590, 400]
-            DstComponent  "N3"
-            DstTerminal   2
-          }
-          Branch {
-            Points        [700, 365; 700, 325]
-            DstComponent  "Mux1"
-            DstTerminal   6
-          }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Mux1"
-          SrcTerminal   1
-          DstComponent  "pwm"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "SVPWM"
-          SrcTerminal   1
-          DstComponent  "Demux2"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Vdc"
-          SrcTerminal   1
-          Points        [465, 260; 465, 295]
-          DstComponent  "SVPWM"
+          DstComponent  "Sum1"
           DstTerminal   2
         }
         Connection {
           Type          Signal
-          SrcComponent  "RRF->SRF"
+          SrcComponent  "Discrete PID\nController1"
           SrcTerminal   2
-          DstComponent  "SVPWM"
-          DstTerminal   3
+          DstComponent  "Sum4"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Sum"
+          SrcTerminal   1
+          DstComponent  "Discrete PID\nController"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Sum3"
+          SrcTerminal   1
+          DstComponent  "Discrete PID\nController1"
+          DstTerminal   1
         }
       }
     }
-    Component {
-      Type          Scope
-      Name          "Ig"
-      Show          on
-      Position      [430, 145]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Location      [0, 27; 1920, 1067]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAB4AAAAP1AAAA"
-"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
-"AAAAA=="
-      SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":222,\"Labels\":[],"
-"\"VisualIdxs\":[]}"
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-      Axes          "1"
-      TimeRange     "0.0"
-      ScrollingMode "1"
-      SingleTimeAxis "1"
-      Open          "0"
-      Ts            "-1"
-      SampleLimit   "0"
-      XAxisLabel    "Time / s"
-      ShowLegend    "1"
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Fourier {
-        SingleXAxis       on
-        AxisLabel         "Frequency / Hz"
-        Scaling           0
-        PhaseDisplay      0
-        ShowFourierLegend off
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-      }
+    Connection {
+      Type          Signal
+      SrcComponent  "Plant"
+      SrcTerminal   2
+      Points        [280, 140; 45, 140; 45, 100]
+      DstComponent  "Controller"
+      DstTerminal   2
     }
-    Component {
-      Type          Scope
-      Name          "Vg"
-      Show          on
-      Position      [430, 90]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Location      [421, 66; 1817, 656]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAABXQAAAIzAAAA"
-"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
-"AAAAA=="
-      SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":222,\"Labels\":[],"
-"\"VisualIdxs\":[]}"
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-      Axes          "1"
-      TimeRange     "0.0"
-      ScrollingMode "1"
-      SingleTimeAxis "1"
-      Open          "0"
-      Ts            "-1"
-      SampleLimit   "0"
-      XAxisLabel    "Time / s"
-      ShowLegend    "1"
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Fourier {
-        SingleXAxis       on
-        AxisLabel         "Frequency / Hz"
-        Scaling           0
-        PhaseDisplay      0
-        ShowFourierLegend off
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-      }
-    }
-    Component {
-      Type          Scope
-      Name          "Vinv"
-      Show          on
-      Position      [430, 35]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Location      [0, 27; 1920, 1051]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAB4AAAAPlAAAA"
-"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
-"AAAAA=="
-      SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":222,\"Labels\":[],"
-"\"VisualIdxs\":[]}"
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-      Axes          "1"
-      TimeRange     "0.0"
-      ScrollingMode "1"
-      SingleTimeAxis "1"
-      Open          "0"
-      Ts            "-1"
-      SampleLimit   "0"
-      XAxisLabel    "Time / s"
-      ShowLegend    "1"
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Fourier {
-        SingleXAxis       on
-        AxisLabel         "Frequency / Hz"
-        Scaling           0
-        PhaseDisplay      0
-        ShowFourierLegend off
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-      }
+    Connection {
+      Type          Signal
+      SrcComponent  "Plant"
+      SrcTerminal   3
+      Points        [320, 165; 25, 165; 25, 60]
+      DstComponent  "Controller"
+      DstTerminal   1
     }
     Connection {
       Type          Signal
@@ -3873,53 +3832,6 @@ Plecs {
       DstComponent  "Plant"
       DstTerminal   1
     }
-    Connection {
-      Type          Signal
-      SrcComponent  "Plant"
-      SrcTerminal   2
-      Points        [370, 55; 370, 20; 50, 20]
-      DstComponent  "Controller"
-      DstTerminal   4
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Plant"
-      SrcTerminal   3
-      Points        [370, 100]
-      Branch {
-        Points        [370, 135; 40, 135; 40, 100]
-        DstComponent  "Controller"
-        DstTerminal   2
-      }
-      Branch {
-        Points        [385, 100; 385, 145]
-        DstComponent  "Ig"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Plant"
-      SrcTerminal   4
-      Points        [380, 90]
-      Branch {
-        Points        [380, 145; 30, 145; 30, 90]
-        DstComponent  "Controller"
-        DstTerminal   1
-      }
-      Branch {
-        DstComponent  "Vg"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Plant"
-      SrcTerminal   5
-      Points        [375, 70; 375, 35]
-      DstComponent  "Vinv"
-      DstTerminal   1
-    }
   }
 }
-DemoSignature "zDOfVkVevh/FngKwup4v4aRwNNESh2EpDO3vbG2ISvM="
+DemoSignature "A7mtBTOd1C9voLSQkilvwyzpJ6yzDvaKo+5xsP8CYdQ="

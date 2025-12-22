@@ -57,7 +57,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [318, 232; 752, 455]
+    Location      [579, 146; 1013, 369]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -99,7 +99,7 @@ Plecs {
         Direction     right
       }
       Schematic {
-        Location      [1050, 193; 1639, 416]
+        Location      [1051, 170; 1673, 426]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -181,7 +181,7 @@ Plecs {
           }
           Parameter {
             Variable      "neutral"
-            Value         "2"
+            Value         "1"
             Show          off
           }
         }
@@ -259,6 +259,11 @@ Plecs {
             Type          Output
             Position      [-10, -34]
             Direction     up
+          }
+          Terminal {
+            Type          Port
+            Position      [0, 35]
+            Direction     down
           }
           Schematic {
             Location      [426, 110; 1590, 807]
@@ -409,7 +414,7 @@ Plecs {
               LabelPosition southSoutheast
               Parameter {
                 Variable      "voltage"
-                Value         "2"
+                Value         "1"
                 Show          off
               }
             }
@@ -424,6 +429,25 @@ Plecs {
               Parameter {
                 Variable      "Index"
                 Value         "8"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Port
+              Name          "g"
+              Show          on
+              Position      [235, 335]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "9"
                 Show          on
               }
               Parameter {
@@ -494,6 +518,13 @@ Plecs {
               DstComponent  "Vinv"
               DstTerminal   1
             }
+            Connection {
+              Type          Wire
+              SrcComponent  "g"
+              SrcTerminal   1
+              DstComponent  "3ph Meter"
+              DstTerminal   9
+            }
           }
         }
         Component {
@@ -547,8 +578,13 @@ Plecs {
             Position      [-25, -20]
             Direction     left
           }
+          Terminal {
+            Type          Port
+            Position      [0, 35]
+            Direction     down
+          }
           Schematic {
-            Location      [0, 93; 1920, 1059]
+            Location      [0, 97; 1920, 1059]
             ZoomFactor    1
             SliderPosition [0, 0]
             ShowBrowser   off
@@ -696,7 +732,26 @@ Plecs {
               LabelPosition southSoutheast
               Parameter {
                 Variable      "voltage"
-                Value         "2"
+                Value         "1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Port
+              Name          "g"
+              Show          on
+              Position      [145, 280]
+              Direction     up
+              Flipped       off
+              LabelPosition east
+              Parameter {
+                Variable      "Index"
+                Value         "8"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
                 Show          off
               }
             }
@@ -753,6 +808,13 @@ Plecs {
               Points        [140, 75]
               DstComponent  "Vabc"
               DstTerminal   1
+            }
+            Connection {
+              Type          Wire
+              SrcComponent  "g"
+              SrcTerminal   1
+              DstComponent  "3ph Meter"
+              DstTerminal   9
             }
           }
         }
@@ -1300,7 +1362,7 @@ Plecs {
               }
               Parameter {
                 Variable      "Configuration"
-                Value         "2"
+                Value         "1"
                 Show          off
               }
               Terminal {
@@ -1602,15 +1664,15 @@ Plecs {
           Type          Scope
           Name          "Scope1"
           Show          on
-          Position      [340, 40]
+          Position      [340, 30]
           Direction     up
           Flipped       off
           LabelPosition south
-          Location      [370, 303; 1615, 1016]
+          Location      [370, 303; 1615, 1043]
           State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
 "wBvAG0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
 "AA/////wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAA"
-"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAABN0AAAKu"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAABN0AAALJ"
 "AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
@@ -1654,6 +1716,33 @@ Plecs {
               BaselineValue 0
             }
           }
+        }
+        Component {
+          Type          Ground
+          Name          "Ground"
+          Show          off
+          Position      [560, 165]
+          Direction     up
+          Flipped       off
+          LabelPosition east
+        }
+        Component {
+          Type          Ground
+          Name          "Ground1"
+          Show          off
+          Position      [450, 205]
+          Direction     up
+          Flipped       off
+          LabelPosition east
+        }
+        Component {
+          Type          Ground
+          Name          "Ground2"
+          Show          off
+          Position      [280, 205]
+          Direction     up
+          Flipped       off
+          LabelPosition east
         }
         Connection {
           Type          Wire
@@ -1781,7 +1870,7 @@ Plecs {
             DstTerminal   1
           }
           Branch {
-            Points        [290, 40]
+            Points        [290, 30]
             DstComponent  "Scope1"
             DstTerminal   1
           }
@@ -1792,6 +1881,28 @@ Plecs {
           SrcTerminal   8
           DstComponent  "Vinv"
           DstTerminal   1
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "Ground"
+          SrcTerminal   1
+          Points        [560, 145]
+          DstComponent  "grid"
+          DstTerminal   4
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "Ground2"
+          SrcTerminal   1
+          DstComponent  "Meter"
+          DstTerminal   9
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "Ground1"
+          SrcTerminal   1
+          DstComponent  "Vg"
+          DstTerminal   8
         }
       }
     }
@@ -3660,4 +3771,4 @@ Plecs {
     }
   }
 }
-DemoSignature "I6lQKsasgXYw1nmqFR9O37ARPu47q8K+W4bHKvBIIRU="
+DemoSignature "/NV7ycOlw2fue24pmYUOZ8PhA+1dSV6cM2+q5mmywZA="
