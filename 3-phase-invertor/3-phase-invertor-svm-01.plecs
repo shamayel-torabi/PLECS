@@ -3110,7 +3110,7 @@ Plecs {
           }
           Parameter {
             Variable      "t_sample"
-            Value         "1e-4"
+            Value         "1/Fs"
             Show          off
           }
           Parameter {
@@ -3266,7 +3266,7 @@ Plecs {
           }
           Parameter {
             Variable      "t_sample"
-            Value         "1e-4"
+            Value         "1/Fs"
             Show          off
           }
           Parameter {
@@ -3802,4 +3802,4 @@ Plecs {
     }
   }
 }
-DemoSignature "5M44zO4/93SDZMptNkfEDeOtShPcg4ZWrD4dFebQIbs="
+DemoSignature "cXJZI1nhuUIMtXb3ccPMbfoba+CR14AgnR2l9qwxlAI="

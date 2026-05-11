@@ -3,7 +3,7 @@ Plecs {
   Version       "4.9"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
-  TimeSpan      "0.1"
+  TimeSpan      "0.5"
   Timeout       ""
   Solver        "auto"
   MaxStep       "1e-3"
@@ -29,7 +29,7 @@ Plecs {
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
   InitializationCommands "L1=1.65E-3\nL2=1.25E-3\nL=L1+L2\nC=2.2E-6\nVdc=800\n"
-"Vm=sqrt(2)*220"
+"Vm=sqrt(2)*220\nFs=1E4\nW=2*pi*Fs/10\nKp=2*0.707*W*L\nKi=W*W*L"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -2283,7 +2283,7 @@ Plecs {
         Index         "1"
       }
       Schematic {
-        Location      [122, 250; 1064, 849]
+        Location      [122, 250; 1238, 870]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -3174,12 +3174,12 @@ Plecs {
           }
           Parameter {
             Variable      "kp"
-            Value         "6"
+            Value         "Kp"
             Show          off
           }
           Parameter {
             Variable      "ki"
-            Value         "10000"
+            Value         "Ki"
             Show          off
           }
           Parameter {
@@ -3224,7 +3224,7 @@ Plecs {
           }
           Parameter {
             Variable      "t_sample"
-            Value         "1e-4"
+            Value         "1/Fs"
             Show          off
           }
           Parameter {
@@ -3330,12 +3330,12 @@ Plecs {
           }
           Parameter {
             Variable      "kp"
-            Value         "6"
+            Value         "Kp"
             Show          off
           }
           Parameter {
             Variable      "ki"
-            Value         "10000"
+            Value         "Ki"
             Show          off
           }
           Parameter {
@@ -3380,7 +3380,7 @@ Plecs {
           }
           Parameter {
             Variable      "t_sample"
-            Value         "1e-4"
+            Value         "1/Fs"
             Show          off
           }
           Parameter {
@@ -3486,7 +3486,7 @@ Plecs {
           }
           Parameter {
             Variable      "fc"
-            Value         "10000"
+            Value         "Fs"
             Show          off
           }
           Parameter {
@@ -3597,7 +3597,7 @@ Plecs {
           }
           Parameter {
             Variable      "CarrierFreq"
-            Value         "20e3"
+            Value         "2*Fs"
             Show          off
           }
           Parameter {
@@ -3762,7 +3762,7 @@ Plecs {
           }
           Parameter {
             Variable      "RepCtrPeriod"
-            Value         "1"
+            Value         "2"
             Show          off
           }
           Parameter {
@@ -3830,19 +3830,19 @@ Plecs {
           Type          Scope
           Name          "Scope"
           Show          on
-          Position      [245, 440]
+          Position      [805, 375]
           Direction     up
           Flipped       off
           LabelPosition south
-          Location      [334, 220; 1711, 925]
+          Location      [0, 27; 1920, 1067]
           State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
 "wBvAG0AQQByAGUAYQAAAAAA/////wAAAF4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
 "AA/////wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAA"
-"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAABWEAAAKm"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAB4AAAAP1"
 "AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
-          HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":114,\"Labels\""
+          HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":133,\"Labels\""
 ":[],\"VisualIdxs\":[]}"
           PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "QAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
@@ -3850,7 +3850,7 @@ Plecs {
           TimeRange     "0"
           ScrollingMode "1"
           SingleTimeAxis "1"
-          Open          "1"
+          Open          "0"
           Ts            "-1"
           SampleLimit   "0"
           XAxisLabel    "Time / s"
@@ -3947,20 +3947,62 @@ Plecs {
             Show          off
           }
         }
-        Connection {
-          Type          Signal
-          SrcComponent  "Three-Phase PLL"
-          SrcTerminal   2
-          DstComponent  "Goto"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "3ph->RRF"
-          SrcTerminal   2
-          Points        [315, 230; 315, 225]
-          DstComponent  "Demux"
-          DstTerminal   1
+        Component {
+          Type          Scope
+          Name          "Scope1"
+          Show          on
+          Position      [425, 145]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Location      [0, 23; 1920, 1019]
+          State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
+"wBvAG0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
+"AA/////wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAA"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAB4AAAAPJ"
+"AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
+"AAAAAAAAA=="
+          SavedViews    "AAAAAgAAAAA="
+          HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":178,\"Labels\""
+":[],\"VisualIdxs\":[]}"
+          PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          Axes          "1"
+          TimeRange     "0.0"
+          ScrollingMode "1"
+          SingleTimeAxis "1"
+          Open          "0"
+          Ts            "-1"
+          SampleLimit   "0"
+          XAxisLabel    "Time / s"
+          ShowLegend    "1"
+          Axis {
+            Name          ""
+            AutoScale     1
+            MinValue      0
+            MaxValue      1
+            Signals       {}
+            SignalTypes   [ ]
+            Untangle      0
+            KeepBaseline  off
+            BaselineValue 0
+          }
+          Fourier {
+            SingleXAxis       on
+            AxisLabel         "Frequency / Hz"
+            Scaling           0
+            PhaseDisplay      0
+            ShowFourierLegend off
+            Axis {
+              Name          ""
+              AutoScale     1
+              MinValue      0
+              MaxValue      1
+              Signals       {}
+              Untangle      0
+              KeepBaseline  off
+              BaselineValue 0
+            }
+          }
         }
         Connection {
           Type          Signal
@@ -3992,13 +4034,6 @@ Plecs {
           SrcTerminal   3
           Points        [355, 340; 355, 350]
           DstComponent  "Goto4"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "3ph->RRF1"
-          SrcTerminal   2
-          DstComponent  "Demux1"
           DstTerminal   1
         }
         Connection {
@@ -4131,14 +4166,6 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "Sum5"
-          SrcTerminal   1
-          Points        [745, 350; 745, 285]
-          DstComponent  "Mux"
-          DstTerminal   3
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "From8"
           SrcTerminal   1
           Points        [795, 320; 795, 290]
@@ -4238,32 +4265,31 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "Sum2"
-          SrcTerminal   1
-          Points        [745, 210; 745, 275]
-          DstComponent  "Mux"
-          DstTerminal   2
+          SrcComponent  "Three-Phase PLL"
+          SrcTerminal   2
+          Points        [360, 125]
+          Branch {
+            DstComponent  "Goto"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [360, 145]
+            DstComponent  "Scope1"
+            DstTerminal   1
+          }
         }
         Connection {
           Type          Signal
           SrcComponent  "Mux1"
           SrcTerminal   1
-          Points        [210, 225]
+          Points        [240, 225]
           Branch {
-            Points        [240, 225]
-            Branch {
-              DstComponent  "3ph->RRF"
-              DstTerminal   1
-            }
-            Branch {
-              Points        [240, 135]
-              DstComponent  "Three-Phase PLL"
-              DstTerminal   1
-            }
+            DstComponent  "3ph->RRF"
+            DstTerminal   1
           }
           Branch {
-            Points        [210, 435]
-            DstComponent  "Scope"
+            Points        [240, 135]
+            DstComponent  "Three-Phase PLL"
             DstTerminal   1
           }
         }
@@ -4271,13 +4297,50 @@ Plecs {
           Type          Signal
           SrcComponent  "Mux2"
           SrcTerminal   1
-          Points        [200, 330]
+          DstComponent  "3ph->RRF1"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "3ph->RRF"
+          SrcTerminal   2
+          Points        [315, 230; 315, 225]
+          DstComponent  "Demux"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "3ph->RRF1"
+          SrcTerminal   2
+          DstComponent  "Demux1"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Sum2"
+          SrcTerminal   1
+          Points        [745, 210; 745, 275; 765, 275]
           Branch {
-            DstComponent  "3ph->RRF1"
-            DstTerminal   1
+            DstComponent  "Mux"
+            DstTerminal   2
           }
           Branch {
-            Points        [200, 445]
+            Points        [765, 370]
+            DstComponent  "Scope"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Sum5"
+          SrcTerminal   1
+          Points        [745, 350; 745, 285; 755, 285]
+          Branch {
+            DstComponent  "Mux"
+            DstTerminal   3
+          }
+          Branch {
+            Points        [755, 380]
             DstComponent  "Scope"
             DstTerminal   2
           }
@@ -4288,22 +4351,23 @@ Plecs {
       Type          Scope
       Name          "Scope"
       Show          on
-      Position      [480, 100]
+      Position      [505, 100]
       Direction     up
       Flipped       off
       LabelPosition south
       Location      [0, 27; 1920, 1067]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"G0AQQByAGUAYQAAAAAA/////wAAAF4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAeAAAAAYvw"
 "BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABSAP///wAAB4AAAAOPAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":53,\"Labels\":[],"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":103,\"Labels\":[],"
 "\"VisualIdxs\":[]}"
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-      Axes          "1"
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
+"AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+      Axes          "2"
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
@@ -4324,6 +4388,17 @@ Plecs {
         KeepBaseline  off
         BaselineValue 0
       }
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
       Fourier {
         SingleXAxis       on
         AxisLabel         "Frequency / Hz"
@@ -4340,6 +4415,30 @@ Plecs {
           KeepBaseline  off
           BaselineValue 0
         }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          SignalDemux
+      Name          "Demux"
+      Show          off
+      Position      [465, 100]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "Width"
+        Value         "[3 3]"
+        Show          off
       }
     }
     Connection {
@@ -4355,15 +4454,29 @@ Plecs {
       SrcTerminal   3
       Points        [440, 100]
       Branch {
-        DstComponent  "Scope"
-        DstTerminal   1
-      }
-      Branch {
         Points        [440, 35; 65, 35; 65, 115]
         DstComponent  "Controller"
         DstTerminal   1
       }
+      Branch {
+        DstComponent  "Demux"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux"
+      SrcTerminal   2
+      DstComponent  "Scope"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux"
+      SrcTerminal   3
+      DstComponent  "Scope"
+      DstTerminal   2
     }
   }
 }
-DemoSignature "qtE3dKqwpl1pPo/Ww9RXxJ5O/qvO6cUTXcLPlDucyKw="
+DemoSignature "PIq/8jEj8tgMWMoRzvPjbb+YfDDqs9z/99kdzAIU2pk="
