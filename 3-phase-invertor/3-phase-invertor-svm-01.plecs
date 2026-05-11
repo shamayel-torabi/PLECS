@@ -1,9 +1,9 @@
 Plecs {
-  Name          "3-phase-invertor-svm"
+  Name          "3-phase-invertor-svm-01"
   Version       "4.9"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
-  TimeSpan      "1"
+  TimeSpan      "0.5"
   Timeout       ""
   Solver        "dopri"
   MaxStep       "1e-3"
@@ -28,8 +28,8 @@ Plecs {
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
-  InitializationCommands "L1=9.0e-3\nL2=2.7e-3\nL=L1+L2\nC=5.986E-6\nVdc=800\n"
-"Vm=sqrt(2)*220"
+  InitializationCommands "L1=2.55E-3\nL2=2.66E-3\nL=L1+L2\nC=4.4E-6\nVdc=800\n"
+"Vm=sqrt(2)*220\nFs=1E4\nW=2*pi*Fs/10\nKp=2*0.707*W*L\nKi=W*W*L"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -58,7 +58,7 @@ Plecs {
   ScriptsDialogGeometry "[754 389 446 244]"
   ScriptsDialogSplitterPos "100"
   Schematic {
-    Location      [520, 385; 1015, 608]
+    Location      [805, 421; 1300, 644]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -291,7 +291,7 @@ Plecs {
               LabelPosition east
               Parameter {
                 Variable      "Width"
-                Value         "6"
+                Value         "3"
                 Show          off
               }
             }
@@ -409,52 +409,62 @@ Plecs {
                 Show          off
               }
             }
-            Connection {
-              Type          Signal
-              SrcComponent  "Demux"
-              SrcTerminal   2
-              Points        [240, 100; 175, 100; 175, 185]
-              DstComponent  "VSI1"
-              DstTerminal   1
+            Component {
+              Type          LogicalOperator
+              Name          "N1"
+              Show          on
+              Position      [175, 235]
+              Direction     right
+              Flipped       off
+              LabelPosition west
+              Parameter {
+                Variable      "Operator"
+                Value         "6"
+                Show          off
+              }
+              Parameter {
+                Variable      "Inputs"
+                Value         "2"
+                Show          off
+              }
             }
-            Connection {
-              Type          Signal
-              SrcComponent  "Demux"
-              SrcTerminal   3
-              Points        [250, 110; 185, 110; 185, 265]
-              DstComponent  "VSI1"
-              DstTerminal   5
+            Component {
+              Type          LogicalOperator
+              Name          "N2"
+              Show          on
+              Position      [265, 235]
+              Direction     right
+              Flipped       off
+              LabelPosition west
+              Parameter {
+                Variable      "Operator"
+                Value         "6"
+                Show          off
+              }
+              Parameter {
+                Variable      "Inputs"
+                Value         "2"
+                Show          off
+              }
             }
-            Connection {
-              Type          Signal
-              SrcComponent  "Demux"
-              SrcTerminal   4
-              Points        [260, 185]
-              DstComponent  "VSI1"
-              DstTerminal   7
-            }
-            Connection {
-              Type          Signal
-              SrcComponent  "Demux"
-              SrcTerminal   5
-              DstComponent  "VSI1"
-              DstTerminal   8
-            }
-            Connection {
-              Type          Signal
-              SrcComponent  "Demux"
-              SrcTerminal   6
-              Points        [280, 110; 340, 110; 340, 185]
-              DstComponent  "VSI1"
-              DstTerminal   10
-            }
-            Connection {
-              Type          Signal
-              SrcComponent  "Demux"
-              SrcTerminal   7
-              Points        [290, 100; 350, 100]
-              DstComponent  "VSI1"
-              DstTerminal   11
+            Component {
+              Type          LogicalOperator
+              Name          "N3"
+              Show          on
+              Position      [345, 245]
+              Direction     right
+              Flipped       off
+              LabelPosition west
+              Parameter {
+                Variable      "Operator"
+                Value         "6"
+                Show          off
+              }
+              Parameter {
+                Variable      "Inputs"
+                Value         "2"
+                Show          off
+              }
             }
             Connection {
               Type          Wire
@@ -498,6 +508,71 @@ Plecs {
               Points        [265, 40]
               DstComponent  "Demux"
               DstTerminal   1
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Demux"
+              SrcTerminal   2
+              Points        [255, 100; 175, 100; 175, 185]
+              Branch {
+                DstComponent  "VSI1"
+                DstTerminal   1
+              }
+              Branch {
+                DstComponent  "N1"
+                DstTerminal   2
+              }
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "N1"
+              SrcTerminal   1
+              Points        [175, 265]
+              DstComponent  "VSI1"
+              DstTerminal   5
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Demux"
+              SrcTerminal   3
+              Points        [265, 185]
+              Branch {
+                DstComponent  "VSI1"
+                DstTerminal   7
+              }
+              Branch {
+                DstComponent  "N2"
+                DstTerminal   2
+              }
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "N2"
+              SrcTerminal   1
+              Points        [265, 265]
+              DstComponent  "VSI1"
+              DstTerminal   8
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "N3"
+              SrcTerminal   1
+              DstComponent  "VSI1"
+              DstTerminal   11
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Demux"
+              SrcTerminal   4
+              Points        [275, 100; 345, 100; 345, 185]
+              Branch {
+                DstComponent  "VSI1"
+                DstTerminal   10
+              }
+              Branch {
+                DstComponent  "N3"
+                DstTerminal   2
+              }
             }
           }
         }
@@ -2395,7 +2470,7 @@ Plecs {
           Frame         [-15, -10; 15, 10]
           Parameter {
             Variable      "Value"
-            Value         "-50"
+            Value         "50"
             Show          off
           }
           Parameter {
@@ -2891,7 +2966,7 @@ Plecs {
           }
           Parameter {
             Variable      "fs"
-            Value         "10e3"
+            Value         "Fs"
             Show          off
           }
           Parameter {
@@ -2916,95 +2991,10 @@ Plecs {
           }
         }
         Component {
-          Type          SignalDemux
-          Name          "Demux2"
-          Show          off
-          Position      [585, 305]
-          Direction     right
-          Flipped       on
-          LabelPosition south
-          Parameter {
-            Variable      "Width"
-            Value         "3"
-            Show          off
-          }
-        }
-        Component {
-          Type          LogicalOperator
-          Name          "N1"
-          Show          on
-          Position      [630, 270]
-          Direction     up
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "Operator"
-            Value         "6"
-            Show          off
-          }
-          Parameter {
-            Variable      "Inputs"
-            Value         "2"
-            Show          off
-          }
-        }
-        Component {
-          Type          SignalMux
-          Name          "Mux1"
-          Show          off
-          Position      [745, 310]
-          Direction     right
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "Width"
-            Value         "6"
-            Show          off
-          }
-        }
-        Component {
-          Type          LogicalOperator
-          Name          "N2"
-          Show          on
-          Position      [630, 335]
-          Direction     up
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "Operator"
-            Value         "6"
-            Show          off
-          }
-          Parameter {
-            Variable      "Inputs"
-            Value         "2"
-            Show          off
-          }
-        }
-        Component {
-          Type          LogicalOperator
-          Name          "N3"
-          Show          on
-          Position      [630, 400]
-          Direction     up
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "Operator"
-            Value         "6"
-            Show          off
-          }
-          Parameter {
-            Variable      "Inputs"
-            Value         "2"
-            Show          off
-          }
-        }
-        Component {
           Type          Output
           Name          "pwm"
           Show          on
-          Position      [785, 310]
+          Position      [595, 305]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -3070,12 +3060,12 @@ Plecs {
           }
           Parameter {
             Variable      "kp"
-            Value         "6"
+            Value         "Kp"
             Show          off
           }
           Parameter {
             Variable      "ki"
-            Value         "10000"
+            Value         "Ki"
             Show          off
           }
           Parameter {
@@ -3226,12 +3216,12 @@ Plecs {
           }
           Parameter {
             Variable      "kp"
-            Value         "6"
+            Value         "Kp"
             Show          off
           }
           Parameter {
             Variable      "ki"
-            Value         "10000"
+            Value         "Ki"
             Show          off
           }
           Parameter {
@@ -3597,86 +3587,9 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "N1"
-          SrcTerminal   1
-          Points        [690, 270; 690, 295]
-          DstComponent  "Mux1"
-          DstTerminal   3
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Demux2"
-          SrcTerminal   2
-          Points        [595, 295; 595, 270]
-          Branch {
-            Points        [595, 245; 710, 245; 710, 285]
-            DstComponent  "Mux1"
-            DstTerminal   2
-          }
-          Branch {
-            DstComponent  "N1"
-            DstTerminal   2
-          }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Demux2"
-          SrcTerminal   3
-          Points        [595, 305]
-          Branch {
-            Points        [595, 335]
-            DstComponent  "N2"
-            DstTerminal   2
-          }
-          Branch {
-            DstComponent  "Mux1"
-            DstTerminal   4
-          }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "N2"
-          SrcTerminal   1
-          Points        [690, 335; 690, 315]
-          DstComponent  "Mux1"
-          DstTerminal   5
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "N3"
-          SrcTerminal   1
-          Points        [715, 400; 715, 335]
-          DstComponent  "Mux1"
-          DstTerminal   7
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Demux2"
-          SrcTerminal   4
-          Points        [590, 365]
-          Branch {
-            Points        [590, 400]
-            DstComponent  "N3"
-            DstTerminal   2
-          }
-          Branch {
-            Points        [700, 365; 700, 325]
-            DstComponent  "Mux1"
-            DstTerminal   6
-          }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Mux1"
-          SrcTerminal   1
-          DstComponent  "pwm"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "SVPWM"
           SrcTerminal   1
-          DstComponent  "Demux2"
+          DstComponent  "pwm"
           DstTerminal   1
         }
         Connection {
@@ -3704,15 +3617,15 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [416, 305; 1812, 958]
+      Location      [0, 27; 1920, 1067]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAF4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAABXQAAAJyAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAB4AAAAP1AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":64,\"Labels\":[],"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":223,\"Labels\":[],"
 "\"VisualIdxs\":[]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
@@ -3785,11 +3698,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 27; 1920, 1060]
+      Location      [0, 27; 1920, 1067]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAB4AAAAPuAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAB4AAAAP1AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -3889,4 +3802,4 @@ Plecs {
     }
   }
 }
-DemoSignature "TlMeLytgI0y8lUsTghqnQIhCXeHAdWmN9MiolcHzhe8="
+DemoSignature "5M44zO4/93SDZMptNkfEDeOtShPcg4ZWrD4dFebQIbs="

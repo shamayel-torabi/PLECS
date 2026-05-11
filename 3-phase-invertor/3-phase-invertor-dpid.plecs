@@ -28,7 +28,8 @@ Plecs {
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
-  InitializationCommands "L1=9.0e-3\nL2=2.7e-3\nL=L1+L2\nC=5.986"
+  InitializationCommands "L1=9.0e-3\nL2=2.7e-3\nL=L1+L2\nC=6.6E-6\nVdc=800\nVm"
+"=220*sqrt(2)"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -57,7 +58,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [579, 146; 1013, 369]
+    Location      [469, 416; 900, 644]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -133,7 +134,7 @@ Plecs {
           LabelPosition west
           Parameter {
             Variable      "V"
-            Value         "800"
+            Value         "Vdc"
             Show          on
           }
         }
@@ -166,7 +167,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "V"
-            Value         "400"
+            Value         "Vm"
             Show          on
           }
           Parameter {
@@ -1690,63 +1691,6 @@ Plecs {
           }
         }
         Component {
-          Type          Scope
-          Name          "Scope1"
-          Show          on
-          Position      [340, 30]
-          Direction     up
-          Flipped       off
-          LabelPosition south
-          Location      [0, 27; 1920, 1060]
-          State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
-"wBvAG0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
-"AA/////wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAA"
-"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAB4AAAAPu"
-"AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
-"AAAAAAAAA=="
-          SavedViews    "AAAAAgAAAAA="
-          HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":222,\"Labels\""
-":[],\"VisualIdxs\":[]}"
-          PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-          Axes          "1"
-          TimeRange     "0.0"
-          ScrollingMode "1"
-          SingleTimeAxis "1"
-          Open          "0"
-          Ts            "-1"
-          SampleLimit   "0"
-          XAxisLabel    "Time / s"
-          ShowLegend    "1"
-          Axis {
-            Name          ""
-            AutoScale     1
-            MinValue      0
-            MaxValue      1
-            Signals       {}
-            SignalTypes   [ ]
-            Untangle      0
-            KeepBaseline  off
-            BaselineValue 0
-          }
-          Fourier {
-            SingleXAxis       on
-            AxisLabel         "Frequency / Hz"
-            Scaling           0
-            PhaseDisplay      0
-            ShowFourierLegend off
-            Axis {
-              Name          ""
-              AutoScale     1
-              MinValue      0
-              MaxValue      1
-              Signals       {}
-              Untangle      0
-              KeepBaseline  off
-              BaselineValue 0
-            }
-          }
-        }
-        Component {
           Type          Ground
           Name          "Ground"
           Show          off
@@ -1901,21 +1845,6 @@ Plecs {
         Connection {
           Type          Signal
           SrcComponent  "Meter"
-          SrcTerminal   1
-          Points        [290, 80]
-          Branch {
-            DstComponent  "Iabc"
-            DstTerminal   1
-          }
-          Branch {
-            Points        [290, 30]
-            DstComponent  "Scope1"
-            DstTerminal   1
-          }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Meter"
           SrcTerminal   8
           DstComponent  "Vinv"
           DstTerminal   1
@@ -1947,6 +1876,13 @@ Plecs {
           SrcComponent  "Filter"
           SrcTerminal   7
           DstComponent  "Ground3"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Meter"
+          SrcTerminal   1
+          DstComponent  "Iabc"
           DstTerminal   1
         }
       }
@@ -2476,7 +2412,7 @@ Plecs {
           }
           Parameter {
             Variable      "Inputs"
-            Value         "|++"
+            Value         "|+-"
             Show          off
           }
           Parameter {
@@ -2689,7 +2625,7 @@ Plecs {
           }
           Parameter {
             Variable      "Inputs"
-            Value         "|+-"
+            Value         "|++"
             Show          off
           }
           Parameter {
@@ -3018,7 +2954,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "K"
-            Value         "[1/400 1/400 1/400]"
+            Value         "[2/Vdc 2/Vdc 2/Vdc]"
             Show          off
           }
           Parameter {
@@ -3809,21 +3745,91 @@ Plecs {
         }
       }
     }
-    Connection {
-      Type          Signal
-      SrcComponent  "Plant"
-      SrcTerminal   2
-      Points        [280, 140; 45, 140; 45, 100]
-      DstComponent  "Controller"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Plant"
-      SrcTerminal   3
-      Points        [320, 165; 25, 165; 25, 60]
-      DstComponent  "Controller"
-      DstTerminal   1
+    Component {
+      Type          Scope
+      Name          "Grid"
+      Show          on
+      Position      [380, 170]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Location      [0, 27; 1920, 1067]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAF4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAB4AAAAP1AAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":64,\"Labels\":[],"
+"\"VisualIdxs\":[]}"
+      PlotPalettes  "AAAAAQAAAAMAAAABAAAAAwAAAAEC//8u4P//zMwAAAAAAAEC//8AAP///"
+"/8AAAAAAAEC//9PsP////8AAAAAAAMAAAABAAAAAAEAAAAAAQAAAAADAAAAAQAAAAEAAAABAAAAAQ"
+"AAAAEAAAABAAAAAwAAAAEAAAAAAQAAAAABAAAAAAMAAAABP/AAAAAAAAAAAAABP/AAAAAAAAAAAAA"
+"BP/AAAAAAAAAAAAADAAAAAQAAAAABAAAAAAEAAAAAAwAAAAEAAAADAAAAAQL//y7g///MzAAAAAAA"
+"AQL//wAA/////wAAAAAAAQL//0+w/////wAAAAAAAwAAAAEAAAAAAQAAAAABAAAAAAMAAAABAAAAA"
+"QAAAAEAAAABAAAAAQAAAAEAAAADAAAAAQAAAAABAAAAAAEAAAAAAwAAAAE/8AAAAAAAAAAAAAE/8A"
+"AAAAAAAAAAAAE/8AAAAAAAAAAAAAMAAAABAAAAAAEAAAAAAQA="
+      Axes          "2"
+      TimeRange     "0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time / s"
+      ShowLegend    "1"
+      Axis {
+        Name          "Grid Voltage"
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        AxisLabel     "Volt"
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          "Grid Current"
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        AxisLabel     "Amper"
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency / Hz"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
     }
     Connection {
       Type          Signal
@@ -3832,6 +3838,37 @@ Plecs {
       DstComponent  "Plant"
       DstTerminal   1
     }
+    Connection {
+      Type          Signal
+      SrcComponent  "Plant"
+      SrcTerminal   3
+      Points        [320, 165]
+      Branch {
+        Points        [25, 165; 25, 60]
+        DstComponent  "Controller"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "Grid"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Plant"
+      SrcTerminal   2
+      Points        [280, 140]
+      Branch {
+        Points        [45, 140; 45, 100]
+        DstComponent  "Controller"
+        DstTerminal   2
+      }
+      Branch {
+        Points        [280, 175]
+        DstComponent  "Grid"
+        DstTerminal   2
+      }
+    }
   }
 }
-DemoSignature "A7mtBTOd1C9voLSQkilvwyzpJ6yzDvaKo+5xsP8CYdQ="
+DemoSignature "NvvE3jPjAwbO3POPxBRVLfDCyyXtdKGVWTa0XfCTvzA="
